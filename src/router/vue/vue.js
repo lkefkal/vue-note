@@ -56,6 +56,16 @@ const vueRoute = [
             component: () => import('@/views/Vue/directive/VFor.vue')
           }
         ]
+      },
+      {
+        path: 'component',
+        component: () => import('@/views/Vue/component/Index.vue'),
+        children: [
+          {
+            path: '参数传递',
+            component: () => import('@/views/Vue/component/Props.vue')
+          }
+        ]
       }
     ]
   }

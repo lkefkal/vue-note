@@ -26,6 +26,9 @@ export default{
         case '1-3':
           router.push('/vue/directive')
           break
+        case '1-4':
+          router.push('/vue/component')
+          break
         default:
           break
       }

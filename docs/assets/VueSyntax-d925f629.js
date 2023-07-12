@@ -1,12 +1,4 @@
-<template>
-  <CodeBlock :info="info"></CodeBlock>
-  <h1>书写风格/细节</h1>
-  <p>组件命名使用PascalCase，属性命名使用camelCase</p>
-</template>
-
-<script setup>
-import CodeBlock from '@/components/CodeBlock/CodeBlock.vue';
-const code1 = `
+import{C as l}from"./CodeBlock-d893ee88.js";import{_ as a,o as c,b as p,f as r,F as n,p as d,g as m,d as t}from"./index-53337f56.js";const o=e=>(d("data-v-ac66a39f"),e=e(),m(),e),_=o(()=>t("h1",null,"书写风格/细节",-1)),u=o(()=>t("p",null,"组件命名使用PascalCase，属性命名使用camelCase",-1)),i=`
 /**
     * 显式定义setup
     */
@@ -24,13 +16,13 @@ const code1 = `
       }
     }
   }
-  </scripts>
+  <\/scripts>
 
   /**
    * 与上方写法等价
    * <scripts setup>
    * const msg = 'HelloWorld'
-   * </scripts>
+   * <\/scripts>
    */
 
   /**
@@ -50,9 +42,7 @@ const code1 = `
       color: red;
     }
   </style>
-`
-
-const code2 = `
+`,f=`
 <template>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
@@ -65,38 +55,5 @@ export default {
     HelloWorld
   }
 }
-</scripts>
-`
-
-const info = 
-  [{
-    title: '模板语法',
-    code: code1,
-    fileName: 'HelloWorld.vue'
-  },
-  {
-    title: 'SFC的使用',
-    code: code2,
-    fileName: 'Another.vue'
-  }]
-
-</script>
-
-<style scoped>
-.container{
-  display: block;
-  height: auto;
-  padding: 1.5em;
-}
-
-.code-block{
-  display: block;
-  position: relative;
-}
-
-.code-block p{
-  position: absolute;
-  top: 0.5em;
-  right: 1em;
-}
-</style>
+<\/scripts>
+`,W={__name:"VueSyntax",setup(e){const s=[{title:"模板语法",code:i,fileName:"HelloWorld.vue"},{title:"SFC的使用",code:f,fileName:"Another.vue"}];return(x,H)=>(c(),p(n,null,[r(l,{info:s}),_,u],64))}},g=a(W,[["__scopeId","data-v-ac66a39f"]]);export{g as default};

@@ -37,8 +37,11 @@
     </el-sub-menu>
     <el-sub-menu index="1-4">
       <template #title>组件</template>
-      <el-menu-item index="1-4-1">单文件组件</el-menu-item>
-      <el-menu-item index="1-4-2">组件传参</el-menu-item>
+      <ElMenuGroup
+        :menuList="['参数传递']"
+        :parentPath="'/vue/component'"
+        :menuIndex="'1-4-'"
+        ></ElMenuGroup>
     </el-sub-menu>
     <el-menu-item index="1-5">生命周期</el-menu-item>
   </el-sub-menu>

@@ -11,6 +11,10 @@ import IconsResolver from 'unplugin-icons/resolver'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: 'https://lkefkal.github.io/MyApp/',
+  build: {
+    outDir: 'docs'
+  },
   plugins: [
     vue(),
     AutoImport({
@@ -38,5 +42,5 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
 })
