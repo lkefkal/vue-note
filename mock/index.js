@@ -1,21 +1,26 @@
-const express = require('express')
-const Mock = require('mockjs')
-const cors = require('cors')
-const app = express()
+import Mock from 'mockjs'
 
-app.use(cors())
-app.get('/api/user/:num', (req, res) => {
-  console.log(req.path)
-  const num = Number(req.params.num);
-  const users = Array.from({length: num}).map(() => 
-    Mock.mock({
+// Mock.mock(/\/api\/user\/\d+/, 'get', function(options) {
+//   console.log(options)
+//   const num = options.url.match(/\/api\/user\/(\d+)/)[1]
+//   return {
+//     status: 200,
+//     data: Array.from({ length: Number(num) }, () => {
+//       return {
+//         id: Mock.Random.guid(),
+//         name: Mock.Random.cname(),
+//       }
+//     })
+//   }
+// })
+
+Mock.mock('/api/user', 'get', {
+  'status': 200,
+  'data|1-10': [{
       'id|+1': 1,
       'name': '@cname',
-    })
-  );
-  res.json(users)
-})
-
-app.listen(3000, () => {
-  console.log('Example app listening on port 3000!')
+      'age|18-60': 20,
+      'sex|1': ['男','女'],
+      'job|1': ['web', 'teacher', 'python', 'php']
+  }]
 })

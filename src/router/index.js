@@ -3,7 +3,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from "@/layout/Layout.vue"
 import Home from "@/views/Home/Index.vue"
 import vueRoute from './vue/vue.js'
-import errorRoute from './404Page/404Page.js'
 
 const router = createRouter({
   history: createWebHashHistory(),

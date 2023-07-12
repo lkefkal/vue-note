@@ -26,8 +26,8 @@
 
 <script setup>
 import { watch, ref } from 'vue';
-import { UserName } from "@/api/user.js"
 import CodeBlockDisplay from '@/components/CodeBlock/CodeBlockDisplay.vue';
+import axios from 'axios'
 
 let a = 0
 let count = ref(0)
@@ -45,8 +45,8 @@ watch(count, async (newVal, oldVal) => {
     return
   }else{
     try{
-      const res = await fetch("http://127.0.0.1:3000" + UserName.getUserNameUrl(count.value))
-      userName.value = await res.json()
+      const res = await axios.get('/api/user/'+count.value)
+      userName.value = res.data.data
     }catch(err){
       console.log(err)
     }
