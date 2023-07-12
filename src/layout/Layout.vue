@@ -1,10 +1,10 @@
 <template>
-    <el-container class="container">
-      <el-aside class="aside">
+    <div class="container">
+      <div class="aside">
         <NavBar/>
-      </el-aside>
-      <el-container>
-        <el-header class="header">
+      </div>
+      <div class="inner-container">
+        <div class="header">
           <el-breadcrumb :separator-icon="ArrowRight" class="path-container">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item v-for="(item,index) in pathName" :key="index" :to="{ path: findPath(item) }">{{item}}</el-breadcrumb-item>
@@ -12,13 +12,13 @@
           <a href="https://github.com/lkefkal/vue-note" target="_blank">
             <img src="@/assets/fluidicon.png" class="git-icon" title="github" alt="github"/>
           </a>
-        </el-header>
+        </div>
         <el-divider class="divider"/>
-        <el-main class="main" >
+        <div class="main" >
           <router-view></router-view>
-        </el-main>
-      </el-container>
-    </el-container>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script setup>
@@ -42,23 +42,26 @@ const pathName = computed(() => {
 </script>
 
 <style scoped>
-/* *{
-  border: 1px solid red;
-} */
 .container {
   height: 100%;
+  widows: 100%;
+  display: flex;
+  flex-direction: row;
 }
-
+.inner-container{
+  width: 100%;
+}
 .header{
   display: flex;
   flex-direction: row;
+  width: 100%;
   height: auto;
   justify-content: space-between;
   align-items: center;
 }
 
 .path-container {
-  padding: 1.5em 1em;
+  padding: 1.5rem 1rem;
 }
 .divider{
   width: 90%;
@@ -66,7 +69,7 @@ const pathName = computed(() => {
 }
 
 .git-icon{
-  width: 2em;
-  height: 2em;
+  width: 2rem;
+  height: 2rem;
 }
 </style>

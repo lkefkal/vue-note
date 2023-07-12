@@ -1,5 +1,6 @@
 import { useRouter,useRoute } from 'vue-router';
 import ElMenuGroup from '@/components/ElMenuGroup/ElMenuGroup.vue'
+import {ref} from 'vue'
 
 export default{
   name: 'NavBar',
@@ -16,6 +17,7 @@ export default{
     const handleOpen = (key, keyPath) => {
       // router.push('./111')
       // console.log(key, keyPath)
+      if(isCollapse.value) return
       switch(key) {
         case '1':
           router.push('/vue')
@@ -35,17 +37,32 @@ export default{
     }
     const handleClose = (key, keyPath) => {
       // console.log(key, keyPath)
+      if(isCollapse.value) return
       router.push({name:'home'})
     }
     
     const handleClick = (path) => {
       router.push(path)
     }
+    const isCollapse = ref(false)
+    const handleWindowSize = () => {
+      if(window.innerWidth < 768) {
+        isCollapse.value = true
+      } else {
+        isCollapse.value = false
+      }
+    }
     return {
       handleOpen,
       handleClose,
-      handleClick
+      handleClick,
+      isCollapse,
+      handleWindowSize,
     }
+  },
+  mounted() {
+    this.handleWindowSize()
+    window.addEventListener('resize', this.handleWindowSize)
   }    
 }
 

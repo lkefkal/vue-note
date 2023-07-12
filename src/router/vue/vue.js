@@ -63,7 +63,7 @@ const vueRoute = [
         children: [
           {
             path: '参数传递',
-            component: () => import('@/views/Vue/component/Props.vue')
+            component: () => import('@/views/Vue/component/Props/Props.vue')
           },
           {
             path: '事件注册',

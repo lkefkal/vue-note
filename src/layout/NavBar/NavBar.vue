@@ -3,11 +3,13 @@
   @open="handleOpen"
   @close="handleClose"
   unique-opened
+  :collapse="isCollapse"
+  class="el-menu-vertical-demo"
 >
   <el-card shadow="always">
     <a @click="handleClick('/home')" class="home-link">
       <img src="@/assets/logo.svg" class="title-image"/>
-      VUE-NOTE 
+      <span  v-if="!isCollapse">VUE-NOTE</span> 
     </a>
   </el-card>
   <el-sub-menu index="1">
@@ -18,8 +20,9 @@
     <el-menu-item
       index="1-1"
       @click="handleClick('/vue/syntax')"
+      class="no-padding"
       >模板语法</el-menu-item>
-    <el-sub-menu index="1-2">
+    <el-sub-menu index="1-2" class="no-padding">
       <template #title>响应式</template>
       <ElMenuGroup
         :menuList="['reactive','ref', 'computed', 'watch']"
@@ -27,7 +30,7 @@
         :menuIndex="'1-2-'"
         ></ElMenuGroup>
     </el-sub-menu>
-    <el-sub-menu index="1-3">
+    <el-sub-menu index="1-3" class="no-padding">
       <template #title>指令</template>
       <ElMenuGroup
         :menuList="['v-bind','v-on', 'v-model', 'v-if', 'v-for']"
@@ -35,7 +38,7 @@
         :menuIndex="'1-3-'"
         ></ElMenuGroup>
     </el-sub-menu>
-    <el-sub-menu index="1-4">
+    <el-sub-menu index="1-4" class="no-padding">
       <template #title>组件</template>
       <ElMenuGroup
         :menuList="['参数传递','插槽','事件注册','生命周期']"
@@ -44,15 +47,15 @@
         ></ElMenuGroup>
     </el-sub-menu>
   </el-sub-menu>
-  <el-menu-item index="2" disabled>
+  <el-menu-item index="2" disabled class="no-padding">
     <!-- <el-icon><icon-menu /></el-icon> -->
     <span>Vue-router</span>
   </el-menu-item>
-  <el-menu-item index="3" disabled>
+  <el-menu-item index="3" disabled class="no-padding">
     <!-- <el-icon><document /></el-icon> -->
     <span>Element-Plus</span>
   </el-menu-item>
-  <el-menu-item index="4" disabled>
+  <el-menu-item index="4" disabled class="no-padding">
     <!-- <el-icon><setting /></el-icon> -->
     <span>Move to TypeScrtpt</span>
   </el-menu-item>
@@ -76,5 +79,19 @@ let index = ref(0)
   height: 1em;
   margin-top: 0.1em;
   margin-right: 0.5em;
+}
+.el-menu-vertical-demo{
+  width: 17em;
+  height: 100%;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .el-menu-vertical-demo{
+    width: auto;
+  }
 }
 </style>

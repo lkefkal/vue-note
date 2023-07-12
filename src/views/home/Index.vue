@@ -18,7 +18,7 @@
     </div>
     <div class="inner-container">
       <a href="https://element-plus.org/zh-CN/" target="_blank">
-        <img alt="Element-Plus" src="@/assets/element-plus-logo.svg" height="80"/>
+        <img alt="Element-Plus" src="@/assets/element-plus-logo.svg" height="60rem"/>
         <a href="https://element-plus.org/zh-CN/" target="_blank">Element-Plus</a>
       </a>
     </div>
@@ -40,12 +40,9 @@
 }
 
 .container img:not([height]){
-  height: 5em;
-  width: 5em;
+  height: 4rem;
 }
 .inner-container{
-  /* flex-basis: calc(50% - 2em); */
-  flex:0 0 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
