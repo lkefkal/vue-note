@@ -15,7 +15,16 @@
         </el-header>
         <el-divider class="divider"/>
         <el-main class="main" >
-          <router-view></router-view>
+          <router-view v-slot="{ Component }">
+            <Suspense>
+              <template #default>
+                <Component :is="Component"/>
+              </template>
+              <template #fallback>
+                <div>Loading...</div>
+              </template>
+            </Suspense>
+          </router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -25,7 +34,7 @@
 import NavBar from "./NavBar/NavBar.vue"
 import { useRouter,useRoute } from 'vue-router'
 import { computed } from "vue"
-
+import Loading from "@/views/loading/Loading.vue"
 import { ArrowRight } from '@element-plus/icons-vue'
 
 const router = useRouter()

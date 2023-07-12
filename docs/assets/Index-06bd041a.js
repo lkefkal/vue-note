@@ -1,4 +1,4 @@
-import{_ as r,a as m,u as _,c as d,r as i,o as t,b as o,f as c,e as l,d as s,F as f,p as v,g as h}from"./index-4fc333d3.js";import{C as k}from"./CodeBlock-94e3898c.js";const x=e=>(v("data-v-1710ae6c"),e=e(),h(),e),I={key:0},b=x(()=>s("h1",null," 组件基础 ",-1)),N={class:"router-ctn"},y=`
+import{_ as r,a as m,u as _,c as d,r as i,o as t,b as o,f as c,e as l,d as s,F as f,p as v,g as h}from"./index-e1cdd9ac.js";import{C as k}from"./CodeBlock-4d747c9a.js";const x=e=>(v("data-v-1710ae6c"),e=e(),h(),e),I={key:0},b=x(()=>s("h1",null," 组件基础 ",-1)),N={class:"router-ctn"},y=`
 <scripts setup>
 import { ref } from 'vue'
 
