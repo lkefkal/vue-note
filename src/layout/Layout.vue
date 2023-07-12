@@ -25,7 +25,6 @@
 import NavBar from "./NavBar/NavBar.vue"
 import { useRouter,useRoute } from 'vue-router'
 import { computed } from "vue"
-import Loading from "@/views/loading/Loading.vue"
 import { ArrowRight } from '@element-plus/icons-vue'
 
 const router = useRouter()

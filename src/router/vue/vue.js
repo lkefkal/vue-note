@@ -64,6 +64,18 @@ const vueRoute = [
           {
             path: '参数传递',
             component: () => import('@/views/Vue/component/Props.vue')
+          },
+          {
+            path: '事件注册',
+            component: () => import('@/views/Vue/component/EventRegister.vue')
+          },
+          {
+            path: '插槽',
+            component: () => import('@/views/Vue/component/Slot.vue')
+          },
+          {
+            path: '生命周期',
+            component: () => import('@/views/Vue/component/LifeCycle.vue')
           }
         ]
       }

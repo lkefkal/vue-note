@@ -1,4 +1,4 @@
-import{C as l}from"./CodeBlock-805d415b.js";import{_ as a,o as c,b as p,f as r,F as n,p as d,g as m,d as t}from"./index-36efaa67.js";const o=e=>(d("data-v-ac66a39f"),e=e(),m(),e),_=o(()=>t("h1",null,"书写风格/细节",-1)),u=o(()=>t("p",null,"组件命名使用PascalCase，属性命名使用camelCase",-1)),i=`
+import{C as l}from"./CodeBlock-a63d0f5b.js";import{_ as a,o as p,b as c,f as r,F as n,p as d,g as m,d as t}from"./index-85d5c705.js";/* empty css                                                                  */const o=e=>(d("data-v-ac66a39f"),e=e(),m(),e),_=o(()=>t("h1",null,"书写风格/细节",-1)),u=o(()=>t("p",null,"组件命名使用PascalCase，属性命名使用camelCase",-1)),i=`
 /**
     * 显式定义setup
     */
@@ -56,4 +56,4 @@ export default {
   }
 }
 <\/scripts>
-`,W={__name:"VueSyntax",setup(e){const s=[{title:"模板语法",code:i,fileName:"HelloWorld.vue"},{title:"SFC的使用",code:f,fileName:"Another.vue"}];return(x,H)=>(c(),p(n,null,[r(l,{info:s}),_,u],64))}},g=a(W,[["__scopeId","data-v-ac66a39f"]]);export{g as default};
+`,W={__name:"VueSyntax",setup(e){const s=[{title:"模板语法",code:i,fileName:"HelloWorld.vue"},{title:"SFC的使用",code:f,fileName:"Another.vue"}];return(x,H)=>(p(),c(n,null,[r(l,{info:s}),_,u],64))}},v=a(W,[["__scopeId","data-v-ac66a39f"]]);export{v as default};

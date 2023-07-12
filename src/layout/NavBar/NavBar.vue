@@ -38,12 +38,11 @@
     <el-sub-menu index="1-4">
       <template #title>组件</template>
       <ElMenuGroup
-        :menuList="['参数传递']"
+        :menuList="['参数传递','插槽','事件注册','生命周期']"
         :parentPath="'/vue/component'"
         :menuIndex="'1-4-'"
         ></ElMenuGroup>
     </el-sub-menu>
-    <el-menu-item index="1-5">生命周期</el-menu-item>
   </el-sub-menu>
   <el-menu-item index="2" disabled>
     <!-- <el-icon><icon-menu /></el-icon> -->

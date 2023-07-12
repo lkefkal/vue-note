@@ -55,7 +55,7 @@ const info = [
     code: code1
   },
   {
-    title: '不适用setup 构建的js组件',
+    title: '不使用setup 构建的js组件',
     fileName: 'App.js',
     code: code2
   }
