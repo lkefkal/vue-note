@@ -1,4 +1,4 @@
-import{m as n,o as r,b as c,f as s,w as o,F as d,i as t,d as e}from"./index-e1cdd9ac.js";import{E as u,a as p}from"./el-descriptions-item-3dda2dd7.js";import{C as _}from"./CodeBlock-4d747c9a.js";const b=e("br",null,null,-1),m=e("br",null,null,-1),v=e("br",null,null,-1),f=e("br",null,null,-1),h=e("br",null,null,-1),g=e("br",null,null,-1),y=`
+import{q as n,o as r,b as c,f as s,w as o,F as d,i as t,d as e}from"./index-48966abe.js";import{E as u,a as p}from"./el-descriptions-item-d29d86ab.js";import{C as _}from"./CodeBlock-50b50ce1.js";const b=e("br",null,null,-1),m=e("br",null,null,-1),v=e("br",null,null,-1),f=e("br",null,null,-1),h=e("br",null,null,-1),g=e("br",null,null,-1),y=`
 <!-- 绑定 attribute -->
 <img v-bind:src="imageSrc" />
 

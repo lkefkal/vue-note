@@ -16,7 +16,16 @@
     
   </div>
   <div>
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <Suspense>
+        <template #default>
+          <Component :is="Component"/>
+        </template>
+        <template #fallback>
+          <div>Loading...</div>
+        </template>
+      </Suspense>
+    </router-view>
   </div>
 </template>
 
