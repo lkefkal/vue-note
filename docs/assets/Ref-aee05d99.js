@@ -1,4 +1,4 @@
-import{_ as f,m as d,o as m,b,f as e,w as t,F as v,i as n,t as l,d as o,p as k,g as x}from"./index-ef13880c.js";import{E as g,a as I}from"./el-descriptions-item-cb7a3845.js";import{_ as h}from"./CodeBlockDisplay-6c5f4437.js";import"./CodeBlock-1fa840a1.js";const u=s=>(k("data-v-f9965baf"),s=s(),x(),s),y=u(()=>o("div",null,[n(" 1. ref 是模板渲染上下文的顶层属性时才适用自动“解包”。 例如， object 是顶层属性，但 object.foo 不是。 "),o("br"),n(" 2.当一个 ref 被嵌套在一个响应式对象中，作为属性被访问或更改时，它会自动解包，因此会表现得和一般的属性一样 ")],-1)),E=u(()=>o("br",null,null,-1)),N=`
+import{_ as f,m as d,o as m,b,f as e,w as t,F as v,i as n,t as l,d as o,p as k,g as x}from"./index-4fc333d3.js";import{E as g,a as I}from"./el-descriptions-item-9a45a114.js";import{_ as h}from"./CodeBlockDisplay-3f701115.js";import"./CodeBlock-94e3898c.js";const u=s=>(k("data-v-f9965baf"),s=s(),x(),s),y=u(()=>o("div",null,[n(" 1. ref 是模板渲染上下文的顶层属性时才适用自动“解包”。 例如， object 是顶层属性，但 object.foo 不是。 "),o("br"),n(" 2.当一个 ref 被嵌套在一个响应式对象中，作为属性被访问或更改时，它会自动解包，因此会表现得和一般的属性一样 ")],-1)),E=u(()=>o("br",null,null,-1)),N=`
 <scripts setup>
 import { ref } from 'vue';
 const count = ref(0)

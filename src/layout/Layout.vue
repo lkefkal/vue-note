@@ -9,6 +9,9 @@
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item v-for="(item,index) in pathName" :key="index" :to="{ path: findPath(item) }">{{item}}</el-breadcrumb-item>
           </el-breadcrumb>
+          <a href="https://github.com/lkefkal/vue-note" target="_blank">
+            <img src="@/assets/fluidicon.png" class="git-icon" title="github" alt="github"/>
+          </a>
         </el-header>
         <el-divider class="divider"/>
         <el-main class="main" >
@@ -51,6 +54,8 @@ const pathName = computed(() => {
   display: flex;
   flex-direction: row;
   height: auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .path-container {
@@ -61,4 +66,8 @@ const pathName = computed(() => {
   margin:0 5%;
 }
 
+.git-icon{
+  width: 2em;
+  height: 2em;
+}
 </style>
