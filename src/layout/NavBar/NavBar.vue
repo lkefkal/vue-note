@@ -47,18 +47,38 @@
         ></ElMenuGroup>
     </el-sub-menu>
   </el-sub-menu>
-  <el-menu-item index="2" disabled class="no-padding">
+  <el-sub-menu index="2" class="no-padding">
     <!-- <el-icon><icon-menu /></el-icon> -->
-    <span>Vue-router</span>
-  </el-menu-item>
-  <el-menu-item index="3" disabled class="no-padding">
+    <template #title>
+      <img src="@/assets/logo.svg" class="title-image"/>
+      <span>Vue-router</span>
+    </template>
+    <el-menu-item
+      index="2-1"
+      @click="handleClick('/router/start')"
+      class="no-padding"
+      >Quick start</el-menu-item>
+    <el-menu-item
+      index="2-2"
+      @click="handleClick('/router/path')"
+      >
+        <span>路由匹配</span>
+    </el-menu-item>
+  </el-sub-menu>
+  <el-sub-menu index="3" disabled class="no-padding">
     <!-- <el-icon><document /></el-icon> -->
-    <span>Element-Plus</span>
-  </el-menu-item>
-  <el-menu-item index="4" disabled class="no-padding">
+    <template #title>
+      <el-icon style="padding: 0;width: auto;"><ElementPlus /></el-icon>  
+      <span>Element-Plus</span>
+    </template>
+  </el-sub-menu>
+  <el-sub-menu index="4" disabled class="no-padding">
     <!-- <el-icon><setting /></el-icon> -->
-    <span>Move to TypeScrtpt</span>
-  </el-menu-item>
+    <template #title>
+      <img src="@/assets/Typescript.png" class="title-image"/>
+      <span>Move to TypeScrtpt</span>
+    </template>
+  </el-sub-menu>
 </el-menu>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isInHome">
+  <div v-if="isInHome" style="padding:0 1.5rem">
     <h1>
       组件基础
     </h1>

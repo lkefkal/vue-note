@@ -31,6 +31,9 @@ export default{
         case '1-4':
           router.push('/vue/component')
           break
+        case '2':
+          router.push('/router')
+          break
         default:
           break
       }

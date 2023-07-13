@@ -2,7 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Layout from "@/layout/Layout.vue"
 import Home from "@/views/Home/Index.vue"
-import vueRoute from './vue/vue.js'
+import vueRoute from './vue'
+import routerRoute from './router'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -18,6 +19,7 @@ const router = createRouter({
           component: Home
         },
         ...vueRoute,
+        ...routerRoute
       ]
     },
   ]
