@@ -1,4 +1,4 @@
-import{C as l}from"./CodeBlock-a2a44e53.js";import{_ as a,o as c,b as p,f as r,F as n,p as d,g as m,d as t}from"./index-0d544538.js";const o=e=>(d("data-v-ac66a39f"),e=e(),m(),e),_=o(()=>t("h1",null,"书写风格/细节",-1)),u=o(()=>t("p",null,"组件命名使用PascalCase，属性命名使用camelCase",-1)),i=`
+import{C as l}from"./CodeBlock-67f0eb80.js";import{_ as a,o as c,b as p,f as r,F as n,p as d,g as m,d as t}from"./index-d920472d.js";const o=e=>(d("data-v-ac66a39f"),e=e(),m(),e),_=o(()=>t("h1",null,"书写风格/细节",-1)),u=o(()=>t("p",null,"组件命名使用PascalCase，属性命名使用camelCase",-1)),i=`
 /**
     * 显式定义setup
     */

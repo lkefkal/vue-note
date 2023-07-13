@@ -50,6 +50,9 @@ const pathName = computed(() => {
 }
 .inner-container{
   width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  position: relative;
 }
 .header{
   display: flex;
@@ -58,6 +61,10 @@ const pathName = computed(() => {
   height: auto;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: rgba(255,255,255,0.8);
+  z-index: 1;
 }
 
 .path-container {

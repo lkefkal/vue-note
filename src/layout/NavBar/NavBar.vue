@@ -83,6 +83,7 @@ let index = ref(0)
 .el-menu-vertical-demo{
   width: 17em;
   height: 100%;
+  overflow-y: scroll;
 }
 
 .no-padding {

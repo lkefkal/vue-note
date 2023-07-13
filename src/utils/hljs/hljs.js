@@ -6,4 +6,5 @@ import hljsVuePlugin from "@highlightjs/vue-plugin";
 
 hljs.registerLanguage('javascript', javascript);
 
+
 export default hljsVuePlugin

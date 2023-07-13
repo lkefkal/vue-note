@@ -1,1 +1,0 @@
-import{_ as s,o as n,b as c,f as e,w as a,F as r,d as _}from"./index-0d544538.js";import{E as l,a as i}from"./el-descriptions-item-3bd1cb58.js";const d={},m=_("div",null," Slot ",-1);function p(f,u){const t=i,o=l;return n(),c(r,null,[m,e(o,{title:"插槽"},{default:a(()=>[e(t,{label:"用法"})]),_:1})],64)}const h=s(d,[["render",p]]);export{h as default};

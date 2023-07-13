@@ -1,38 +1,16 @@
-<template>
-  <el-descriptions title="插槽" :column="1" style="margin-top: 2rem;">
-    <el-descriptions-item label="用法">
-      <p id="usage">1. {{ `\<parent\>\</parent\>` }}组件中添加{{ `\<slot\>\</slot\>` }} 标签</p>
-      <CodeBlock
-        :info="[{
-          fileName: 'Parent.vue',
-          code:`
+import{u as p,o as i,Y as m,w as a,f as t,d as o,t as l}from"./index-d920472d.js";import{E as r,a as d}from"./el-descriptions-item-7da0647d.js";import{C as e}from"./CodeBlock-67f0eb80.js";const f=o("p",{id:"usage"},"1. "+l("<parent></parent>")+"组件中添加"+l("<slot></slot>")+" 标签",-1),u=o("p",null,"2. 将想要被包裹在"+l("<parent></paren>")+" 的组件包在里面",-1),c=o("p",null,"1. "+l("<parent></parent>")+"组件中添加"+l('<slot name=""></slot>')+" 标签",-1),_=o("p",null,"2. 将想要被包裹在"+l("<parent></paren>")+" 的"+l("<template #abc></template>")+"写入 并用#或者v-slot=''具名",-1),P=o("p",null,"1.未具名插槽向插入的组件传参",-1),v=o("p",null,"具名插槽传参",-1),B={__name:"Slot",setup(h){return p(),(g,N)=>{const s=d,n=r;return i(),m(n,{title:"插槽",column:1,style:{"margin-top":"2rem"}},{default:a(()=>[t(s,{label:"用法"},{default:a(()=>[f,t(e,{info:[{fileName:"Parent.vue",code:`
             <template>
               <div>
                 <slot></slot>
               </div>
             </template>
-            `
-        }]" 
-      ></CodeBlock>
-      <p>2. 将想要被包裹在{{ `\<parent\>\</paren\>` }} 的组件包在里面</p>
-      <CodeBlock
-        :info="[{
-          fileName: 'App.vue',
-          code:`
+            `}]},null,8,["info"]),u,t(e,{info:[{fileName:"App.vue",code:`
             <template>
               <Parent>
                 <Child></Child>
               </Parent>
             </template>
-            `
-        }]" 
-      ></CodeBlock>
-    </el-descriptions-item>
-    <el-descriptions-item label="插槽默认值">
-      <CodeBlock
-        :info="[{
-          fileName: 'Parent.vue',
-          code:`
+            `}]},null,8,["info"])]),_:1}),t(s,{label:"插槽默认值"},{default:a(()=>[t(e,{info:[{fileName:"Parent.vue",code:`
             <template>
               <div>
                 <slot>
@@ -40,16 +18,7 @@
                 </slot>
               </div>
             </template>
-            `
-        }]" 
-      ></CodeBlock>
-    </el-descriptions-item>
-    <el-descriptions-item label="具名插槽">
-      <p>1. {{ `\<parent\>\</parent\>` }}组件中添加{{ `\<slot name=""\>\</slot\>` }} 标签</p>
-        <CodeBlock
-        :info="[{
-          fileName: 'Parent.vue',
-          code:`
+            `}]},null,8,["info"])]),_:1}),t(s,{label:"具名插槽"},{default:a(()=>[c,t(e,{info:[{fileName:"Parent.vue",code:`
             <template>
               <div>
                 <!-- 未具名的插槽默认具名default -->
@@ -58,14 +27,7 @@
                 <slot name='second'></slot>
               </div>
             </template>
-            `
-        }]" 
-      ></CodeBlock>
-      <p>2. 将想要被包裹在{{ `\<parent\>\</paren\>` }} 的{{ `\<template #abc\>\</template\>` }}写入 并用#或者v-slot=''具名</p>
-      <CodeBlock
-      :info="[{
-        fileName: 'App.vue',
-        code:`
+            `}]},null,8,["info"]),_,t(e,{info:[{fileName:"App.vue",code:`
           <template>
             <Parent>
               <!-- 传入的具名子组件将无视顺序直接插入对应插槽 -->
@@ -76,25 +38,12 @@
               <template #first></template>
             </Parent>
           </template>
-          `
-      }]" 
-      ></CodeBlock>
-    </el-descriptions-item>
-    <el-descriptions-item label="插槽传参">
-      <p>1.未具名插槽向插入的组件传参</p>
-      <CodeBlock
-      :info="[{
-        fileName: 'Parent.vue',
-        code:`
+          `}]},null,8,["info"])]),_:1}),t(s,{label:"插槽传参"},{default:a(()=>[P,t(e,{info:[{fileName:"Parent.vue",code:`
           <template>
             <slot :msg='HelloWorld' :title='abc'>
             </slot>
           </template>
-          `
-        },
-        {
-          fileName: 'App.vue',
-          code:`
+          `},{fileName:"App.vue",code:`
             <template>
               <Parent v-slot='slotProps'>
                 <Child :msg='slotProps.msg' :title='slotProps.title'></Child>
@@ -104,25 +53,13 @@
                 <Child :msg='msg' :title='title'></Child>
               </Parent>
             </template>
-            `
-        }
-      ]" 
-      ></CodeBlock>
-      <p>具名插槽传参</p>
-      <CodeBlock
-        :info="[{
-          fileName: 'Parent.vue',
-          code:`
+            `}]},null,8,["info"]),v,t(e,{info:[{fileName:"Parent.vue",code:`
             <template>
               <slot name='first' :msg='HelloWorld' :title='abc'>
               </slot>
               <slot></slot>
             </template>
-            `
-          },
-          {
-            fileName: 'App.vue',
-            code:`
+            `},{fileName:"App.vue",code:`
               <template>
                 <Parent>
                   <!-- 未具名的插槽在与具名插槽同时存在时
@@ -138,17 +75,4 @@
                   </template>
                 </Parent>
               </template>
-              `
-              }
-          ]"
-      ></CodeBlock>
-    </el-descriptions-item>
-  </el-descriptions>
-</template>
-
-<script setup>
-import CodeBlock from "@/components/CodeBlock/CodeBlock.vue"; 
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-</script>
+              `}]},null,8,["info"])]),_:1})]),_:1})}}};export{B as default};
