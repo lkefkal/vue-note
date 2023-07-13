@@ -29,12 +29,12 @@ const isInHome = computed(() => {
   justify-content: center;
   align-items: center;
   height: auto;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-.container>div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 </style>

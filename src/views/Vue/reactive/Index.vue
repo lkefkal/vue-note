@@ -40,9 +40,8 @@ const handleClick = (path) => {
 <style scoped>
 .container {
   padding:0.5em 1.5em;
-}
-
-.container+div {
-  padding:0.5em 1.5em;
+  & + div {
+    padding:0.5em 1.5em;
+  }
 }
 </style>

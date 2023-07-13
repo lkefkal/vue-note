@@ -90,9 +90,9 @@ let index = ref(0)
 <style scoped>
 .home-link {
   color: black;
-}
-.home-link:hover {
-  cursor: pointer;
+  &:hover{
+    cursor: pointer;
+  }
 }
 .title-image {
   object-fit: cover;

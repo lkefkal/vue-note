@@ -63,7 +63,7 @@ const pathName = computed(() => {
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: rgba(255,255,255,0.8);
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgb(255, 255, 255));
   z-index: 1;
 }
 
@@ -78,5 +78,6 @@ const pathName = computed(() => {
 .git-icon{
   width: 2rem;
   height: 2rem;
+  margin: 0 1.5rem 0 0;
 }
 </style>

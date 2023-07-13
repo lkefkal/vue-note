@@ -117,6 +117,22 @@
         `
       }]"
       ></CodeBlock>
+      <p>3. 路径参数格式验证</p>
+      <CodeBlock
+      :info="[{
+        filename: 'router.js',
+        code:`
+        const route = [
+          {
+            /**
+             * 仅匹配数字 
+             */
+            path: '/about/:id(\\d+)'
+          }
+        ]
+        `
+      }]"
+      ></CodeBlock>
     </el-descriptions-item>
   </el-descriptions>
 </template>

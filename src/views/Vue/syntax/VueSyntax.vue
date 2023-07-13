@@ -1,7 +1,9 @@
 <template>
   <CodeBlock :info="info"></CodeBlock>
-  <h1>书写风格/细节</h1>
-  <p>组件命名使用PascalCase，属性命名使用camelCase</p>
+  <div style="padding:1.5rem">  
+    <h1>书写风格/细节</h1>
+    <p>组件命名使用PascalCase，属性命名使用camelCase</p>
+  </div>
 </template>
 
 <script setup>
@@ -79,10 +81,9 @@ const info =
     code: code2,
     fileName: 'Another.vue'
   }]
-
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container{
   display: block;
   height: auto;
@@ -92,11 +93,10 @@ const info =
 .code-block{
   display: block;
   position: relative;
-}
-
-.code-block p{
-  position: absolute;
-  top: 0.5em;
-  right: 1em;
+  & p {
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+  }
 }
 </style>
