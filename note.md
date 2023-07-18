@@ -372,3 +372,102 @@ export default {
   }
   </script>
   ```
+  # vue-roter
+  ## 1.路由基础
+  ### 1.1 路由的基本使用
+  > main.js
+  ```
+  import { createApp } from 'vue'
+  import App from './App.vue'
+  import router from './router'
+  createApp(App).use(router).mount('#app')
+  ```
+  > router/index.js
+  ```
+  import { createRouter, createWebHistory } from 'vue-router'
+  import Home from '../views/Home.vue'
+  const routes = [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    }
+  ]
+  const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
+    routes
+  })
+
+  export default router
+  ```
+
+  ### 1.2 路由的嵌套
+  > router/index.js
+  ```
+  import { createRouter, createWebHistory } from 'vue-router'
+  import Home from '../views/Home.vue'
+  import About from '../views/About.vue'
+  const routes = [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About,
+      children: [
+        {
+          path: 'a',
+          name: 'A',
+          component: () => import(/* webpackChunkName: "about" */ '../views/A.vue')
+        },
+        {
+          path: 'b',
+          name: 'B',
+          component: () => import(/* webpackChunkName: "about" */ '../views/B.vue')
+        }
+      ]
+    }
+  ]
+  const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
+    routes
+  })
+
+  export default router
+  ```
+  > About.vue
+  ```
+  <template>
+    <div>
+      <h1>About</h1>
+      <router-view></router-view>
+    </div>
+  </template>
+
+  <script>
+  export default {
+    name: 'About'
+  }
+  </script>
+  ```
+  > A.vue
+  ```
+  <template>
+    <div>
+      <h1>A</h1>
+    </div>
+  </template>
+  <script>
+  export default {
+    name: 'A'
+  }
+  </script>
+  ```
