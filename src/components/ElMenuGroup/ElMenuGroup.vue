@@ -1,28 +1,42 @@
 <template>
 <el-menu-item
   v-for="(path,index) in menuList"
-  :index="menuIndex+(index+1)"
+  :index="(menuIndex+(index+1))"
   @click="handleClick(`${parentPath}/${path}`)"
   :disabled="activePath === path"
   :key="menuIndex+index"
 >{{ path }}</el-menu-item>
 </template>
 
-<script setup>
-import { computed } from 'vue';
-import { useRouter,useRoute } from 'vue-router';
+<script lang="ts">
+import { Vue, Options } from "vue-class-component";
 
-const router = useRouter()
-const route = useRoute()
-
-const props = defineProps(['menuList','parentPath','menuIndex'])
-
-const activePath = computed(() => {
-      const route = useRoute()
-      return route.path.split('/').pop()
-    })
-
-const handleClick = (path) => {
-  router.push(path)
+@Options({
+  props: {
+    menuList: {
+      type: Array as () => string[],
+      required: true
+    },
+    parentPath: {
+      type: String,
+      required: true
+    },
+    menuIndex: {
+      type: String,
+      required: true
+    }
+  }
+})
+export default class ElMenuGroup extends Vue {
+  menuList!: string[]
+  parentPath!: string
+  menuIndex!: number
+  handleClick(path: string): void {
+    this.$router.push(path)
+  }
+  get activePath(): string {
+    return this.$route.path.split('/').pop()!
+  }
 }
+
 </script>

@@ -1,0 +1,7 @@
+interface MenuList{
+  
+}
+
+interface ElMenuGroupInfo{
+
+}

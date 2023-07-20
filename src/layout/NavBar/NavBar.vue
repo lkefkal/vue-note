@@ -91,7 +91,7 @@
 </el-menu>
 </template>
 
-<script src="./NavBar.js" />
+<script lang="ts" src="./NavBar.ts" />
 
 <style scoped>
 .home-link {

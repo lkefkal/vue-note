@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <template v-for="{title,code,fileName} in props.info">
+    <template v-for="{title,code,fileName} in info">
       <h1 v-if="title">{{ title }}</h1>
       <div class="code-block">
         <p>{{ fileName }}</p>
@@ -10,11 +10,21 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts">
+import { Vue, Options } from "vue-class-component";
+import type CodeBlockInfoArray from "./CodeBlockInfoArray.d.ts";
 
-const props = defineProps([
-  'info'
-])
+@Options({
+  props: {
+    info: {
+      type: Array as () => CodeBlockInfoArray,
+      required: true
+    }
+  }
+})
+export default class CodeBlock extends Vue {
+  info!: CodeBlockInfoArray
+}
 </script>
 
 <style scoped>
@@ -31,4 +41,4 @@ const props = defineProps([
   position: absolute;
   right: 1em;
 }
-</style>
+</style>./CodeBlockInfoArray.js

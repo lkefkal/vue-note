@@ -23,6 +23,7 @@
     "tslib": "^2.6.0",
     "vue": "^3.3.4",
     "vue-class-component": "next",
+    "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
@@ -35,7 +36,6 @@
     "unplugin-icons": "^0.16.3",
     "unplugin-vue-components": "^0.25.1",
     "vite": "^4.3.9",
-    "vite-plugin-legacy": "^2.1.0",
-    "vue-property-decorator": "^9.1.2"
+    "vite-plugin-legacy": "^2.1.0"
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="code-block-container">
     <div class="left-box">
-    <CodeBlock :info="props.info"></CodeBlock>
+    <CodeBlock :info="info"></CodeBlock>
     </div>
     <div class="right-box">
       <slot></slot>
@@ -9,9 +9,26 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts">
 import CodeBlock from "./CodeBlock.vue"
-const props = defineProps(['info'])
+// const props = defineProps(['info'])
+import { Vue, Options } from "vue-class-component";
+import type CodeBlockInfoArray from "./CodeBlockInfoArray.d.ts";
+
+@Options({
+  props: {
+    info: {
+      type: Array as () => CodeBlockInfoArray,
+      required: true
+    }
+  },
+  components: {
+    CodeBlock
+  }
+})
+export default class CodeBlockDisplay extends Vue {
+  info!: CodeBlockInfoArray
+}
 </script>
 
 <style scoped>
@@ -34,4 +51,4 @@ const props = defineProps(['info'])
   align-items: start;
   flex-grow: 1;
 }
-</style>
+</style>./CodeBlockInfoArray
