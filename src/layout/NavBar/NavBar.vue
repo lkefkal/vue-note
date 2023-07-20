@@ -79,13 +79,19 @@
       <span>Move to TypeScrtpt</span>
     </template>
   </el-sub-menu>
+  <el-sub-menu index="5" class="no-padding">
+    <template #title>
+      <span>Modules</span>
+    </template>
+    <el-menu-item
+      index="5-1"
+      @click="handleClick('/modules/quill')"
+      >quill</el-menu-item>
+  </el-sub-menu>
 </el-menu>
 </template>
 
-<script src="./NavBar.js">
-import { ref } from 'vue';
-let index = ref(0)
-</script>
+<script src="./NavBar.js" />
 
 <style scoped>
 .home-link {
@@ -101,7 +107,7 @@ let index = ref(0)
   margin-right: 0.5em;
 }
 .el-menu-vertical-demo{
-  width: 17em;
+  /* width: 17em; */
   height: 100%;
   overflow-y: scroll;
 }
@@ -110,9 +116,9 @@ let index = ref(0)
   padding: 0;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .el-menu-vertical-demo{
     width: auto;
   }
-}
+} */
 </style>

@@ -3,7 +3,7 @@ import errorRoute from '../404Page/404Page'
 const vueRoute = [
   {
     path: '/vue',
-    component: () => import('@/views/Vue/Index.vue'),
+    component: () => import('@/views/Vue/VueView.vue'),
     children: [
       {
         path: 'syntax',

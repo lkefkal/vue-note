@@ -4,6 +4,7 @@ import Layout from "@/layout/Layout.vue"
 import Home from "@/views/Home/Index.vue"
 import vueRoute from './vue'
 import routerRoute from './router'
+import modulesRoute from './modules'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -19,7 +20,8 @@ const router = createRouter({
           component: Home
         },
         ...vueRoute,
-        ...routerRoute
+        ...routerRoute,
+        ...modulesRoute,
       ]
     },
   ]
