@@ -1,5 +1,8 @@
 <template>
-  <CodeBlock :info="info"></CodeBlock>
+  <h1>模板语法</h1>
+  <PCodeBlock :code="code1"></PCodeBlock>
+  <h1>SFC的使用</h1>
+  <PCodeBlock :code="code2"></PCodeBlock>
   <div style="padding:1.5rem">  
     <h1>书写风格/细节</h1>
     <p>组件命名使用PascalCase，属性命名使用camelCase</p>

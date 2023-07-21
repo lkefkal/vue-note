@@ -1,7 +1,7 @@
 <template>
 <el-menu-item
   v-for="(path,index) in menuList"
-  :index="(menuIndex+(index+1))"
+  :index="(menuIndex+(index+1).toString())"
   @click="handleClick(`${parentPath}/${path}`)"
   :disabled="activePath === path"
   :key="menuIndex+index"

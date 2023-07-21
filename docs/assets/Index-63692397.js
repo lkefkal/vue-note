@@ -1,0 +1,1 @@
+import{_ as n,r as t,o as c,c as r,b as s,F as a,e}from"./index-97cdd087.js";const l={},_=e("ul",null,[e("li",null,"1. quill")],-1);function u(i,d){const o=t("RouterView");return c(),r(a,null,[_,s(o)],64)}const f=n(l,[["render",u]]);export{f as default};

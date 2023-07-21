@@ -1,47 +1,34 @@
 <template>
-  <div class="container">
-    <el-descriptions title="vue 响应式" :column="1">
-      <el-descriptions-item label="原理">
-        new Proxy(target, handler)
-      </el-descriptions-item>
-      <el-descriptions-item label="常用响应式函数">
-        <el-button
-          v-for="path in ['reactive','ref', 'computed', 'watch']"
-          @click="handleClick(`${path}`)"
-          round
-          :disabled="whiereIs === path"
-        >{{ path }}</el-button>
-      </el-descriptions-item>
-    </el-descriptions>
-    
-  </div>
-  <div>
-    <router-view></router-view>
-  </div>
+  <el-descriptions title="vue 响应式" :column="1" class="title">
+    <el-descriptions-item label="原理">
+      <code>new Proxy(target, handler)</code>
+    </el-descriptions-item>
+    <el-descriptions-item label="常用响应式函数">
+      <el-button
+        v-for="path in ['reactive','ref', 'computed', 'watch']"
+        @click="handleClick(`${path}`)"
+        round
+        :disabled="whiereIs === path"
+      >{{ path }}</el-button>
+    </el-descriptions-item>
+  </el-descriptions>
+  <router-view></router-view>
 </template>
 
-<script setup>
-import { computed } from 'vue';
-import { useRouter,useRoute } from 'vue-router';
-
-const router = useRouter()
-const route = useRoute()
-
-const whiereIs = computed(() => {
-  // console.log(route.path.split('/').pop())
-  return route.path.split('/').pop()
-})
-
-const handleClick = (path) => {
-  router.push('/vue/react/' + path)
+<script lang="ts">
+import { Vue } from 'vue-class-component';
+export default class VueView extends Vue {
+  handleClick(path:string){
+    this.$router.push('/vue/react/' + path)
+  }
+  get whiereIs(){
+    return (this.$route.path).split('/').pop()
+  }
 }
 </script>
 
-<style scoped>
-.container {
-  padding:0.5em 1.5em;
-  & + div {
-    padding:0.5em 1.5em;
-  }
+<style scoped lang="scss">
+.title {
+  padding: 1em 0 0 0;
 }
 </style>
