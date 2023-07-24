@@ -4,6 +4,6 @@ export default class CleanCode {
     this.code = code;
   }
   get cleanCode() {
-    return this.code.replace(/^\n+\s+|\n+\s+$/g, '');
+    return this.code.replace(/^\n+\s+|\n+\s+$/g, '').replace(/scripts/g, 'script');
   }
 }

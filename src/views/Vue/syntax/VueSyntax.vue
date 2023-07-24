@@ -1,8 +1,8 @@
 <template>
   <h1>模板语法</h1>
-  <PCodeBlock :code="code1"></PCodeBlock>
+  <PCodeBlock :code="code1" title="HelloWorld.vue"></PCodeBlock>
   <h1>SFC的使用</h1>
-  <PCodeBlock :code="code2"></PCodeBlock>
+  <PCodeBlock :code="code2" title="App.vue"></PCodeBlock>
   <div style="padding:1.5rem">  
     <h1>书写风格/细节</h1>
     <p>组件命名使用PascalCase，属性命名使用camelCase</p>

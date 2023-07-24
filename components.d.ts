@@ -25,6 +25,7 @@ declare module 'vue' {
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     PCodeBlock: typeof import('./src/components/PrimCodeBlock/PCodeBlock/PCodeBlock.vue')['default']
+    PCodeBlockDisplay: typeof import('./src/components/PrimCodeBlock/PCodeBlockDisPlay/PCodeBlockDisplay.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

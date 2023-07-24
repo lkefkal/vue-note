@@ -17,57 +17,65 @@
       </div>
     </el-descriptions-item>
   </el-descriptions>
-  <CodeBlockDisplay :info="info">
-    <div>
-      <button @click="incresement" class="tem-btn">
-        {{ count }}
-      </button>
-      <br/>
-      <button @click="count--">减一</button>
-    </div>
-  </CodeBlockDisplay>
-</template>
-
-<script setup>
-import CodeBlockDisplay from '@/components/CodeBlock/CodeBlockDisplay.vue';
-import { ref } from 'vue';
-
-const count = ref(0)
-
-const incresement = () => {
-  count.value += 1
-}
-const code = `
-<scripts setup>
-import { ref } from 'vue';
-const count = ref(0)
-const incresement = () => {
-  count.value += 1
-}
-</scripts>
-
-<template>
+  <PCodeBlockDisplay
+    :code="code"
+    title="Ref.vue"
+    toc="language-html"
+  >
   <div>
-    <button @click="incresement">
-      {{ count }}
-    </button>
+    <p>{{ 'count=' + count }}</p>
+    <el-button @click="incresement">+1</el-button>
     <br/>
-    <button @click="count--">
-      减一
-    </button>
+    <el-button @click="decresement">-1</el-button>
   </div>
+  </PCodeBlockDisplay>
 </template>
-`
 
-const info = [{
-  fileName:'Ref.Vue',
-  code:code,
-}]
+<script lang="ts">
+import { Vue, Options } from 'vue-class-component';
+import PCodeBlockDisplay from '@/components/PrimCodeBlock/PCodeBlockDisplay/PCodeBlockDisplay.vue';
+
+@Options({
+  components:{
+    PCodeBlockDisplay
+  }
+})
+export default class Ref extends Vue {
+  count = 0
+  incresement = () => {
+    this.count += 1
+  }
+  decresement = () => {
+    this.count -= 1
+  }
+  get code(){
+    return`
+        <scripts setup>
+        import { ref } from 'vue';
+        const count = ref(0)
+        const incresement = () => {
+          count.value += 1
+        }
+        const decresement = () => {
+          count.value -= 1
+        }
+        </scripts>
+
+        <template>
+          <p>{{ 'count=' + count }}</p>
+          <el-button @click="incresement">+1</el-button>
+          <br/>
+          <el-button @click="decresement">-1</el-button>
+        </template>
+        `
+  }
+}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .tem-btn{
   width:3em;
   height: 1.5em;
 }
+
 </style>

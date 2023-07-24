@@ -61,19 +61,19 @@ const vueRoute: RouteRecordRaw = {
         component: () => import('@/views/Vue/component/Index.vue'),
         children: [
           {
-            path: '参数传递',
+            path: 'props',
             component: () => import('@/views/Vue/component/Props/Props.vue')
           },
           {
-            path: '事件注册',
+            path: 'event',
             component: () => import('@/views/Vue/component/EventRegister.vue')
           },
           {
-            path: '插槽',
+            path: 'slot',
             component: () => import('@/views/Vue/component/Slot.vue')
           },
           {
-            path: '生命周期',
+            path: 'lifecycle',
             component: () => import('@/views/Vue/component/LifeCycle.vue')
           }
         ]

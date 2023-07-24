@@ -12,92 +12,106 @@
       可以监听一个响应式对象的变化，也可以监听一个getter函数的变化，当监听的对象发生变化时，callback()函数会被调用
     </el-descriptions-item>
   </el-descriptions>
-  <CodeBlockDisplay :info="info">
+  <PCodeBlockDisplay
+    :code="code"
+    title="Computed.vue"
+    toc="language-html"
+  >
     <div>
-      <el-button @click="a++">{{ a }}</el-button>
+      <el-button name="unChangableBtn" @click="(a as any)++">{{ 'a=' + a }}</el-button>
       <br/>
-      <label for="user">输入人数:</label>
-      <input v-model="count" type="number" name="user"/>
-      <p v-if="count<=0">请输入人数，人数不得小于1</p>
-      <p v-for="(name,idx) in userName" :key="idx">{{ name.name }}</p>
+      <br/>
+      <label for="user">输入人数:</label><br/>
+      <input type="number" v-model="count" name="user"/>
+      <p v-for="(user,idx) in users" :key="idx">{{ (user as User).name }}</p>
+      <p v-if="count<=0">人数不能小于1</p>
     </div>
-  </CodeBlockDisplay>
+  </PCodeBlockDisplay>
 </template>
 
-<script setup>
-import { watch, ref } from 'vue';
-import CodeBlockDisplay from '@/components/CodeBlock/CodeBlockDisplay.vue';
+<script lang="ts">
+import { Vue, Options} from 'vue-class-component';
+import PCodeBlockDisplay from '@/components/PrimCodeBlock/PCodeBlockDisplay/PCodeBlockDisplay.vue';
 import axios from 'axios'
 
-let a = 0
-let count = ref(0)
-let userName = ref('')
-watch(() => a, async (newVal, oldVal, onCleanUp) => {
-  console.log(newVal, oldVal)
-  
-  onCleanUp(() => {
-    console.log('clean up')
-  })
-})
-watch(count, async (newVal, oldVal) => {
-  if(count.value <= 0){
-    userName.value = ''
-    return
-  }else{
-    try{
-      const res = await axios.get('/api/user/'+count.value)
-      userName.value = res.data.data
-    }catch(err){
-      console.log(err)
+type User = {
+  name:string,
+  id:number
+}
+type Users = User[] | ''
+
+@Options({
+  components:{
+    PCodeBlockDisplay
+  },
+  watch:{
+    a(newVal, oldVal, onCleanUp){
+      console.log(newVal, oldVal)
+    },
+    count(newVal, oldVal){
+      if(this.count <= 0){
+        this.users = ''
+        return
+      }else{
+        axios.get('/api/user/'+newVal)
+        .then(res => {
+          this.users = res.data.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      }
     }
   }
 })
-
-const code = 
-`
-<scripts setup>
-import { watch, ref } from 'vue';
-import { UserName } from "@/api/user.js"
-/**
- * a不是一个响应式对象，
- * 所以watch无法对a的变化进行响应
- * /
-let a = 0
-let count = ref(0)
-let userName = ref('')
-
-watch(() => a, async (newVal, oldVal) => {
-  console.log(newVal, oldVal)
-})
-watch(count, async (newVal, oldVal) => {
-  if(count.value <= 0){
-    userName.value = ''
-    return
-  }else{
-    try{
-      const res = await fetch("http://127.0.0.1:3000" + UserName.getUserNameUrl(count.value))
-      userName.value = await res.json()
-    }catch(err){
-      console.log(err)
-    }
+export default class Watch extends Vue {
+  get a(){
+    return 1
   }
-})
-</scripts>
+  count = 0
+  users:Users = ''
 
-<template>
-  <div>
-    <el-button @click="a++">{{ a }}</el-button>
-    <br/>
-    <label for="user">输入人数:</label>
-    <input v-model="count" type="number" name="user"/>
-    <p v-if="count<=0">请输入人数，人数不得小于1</p>
-    <p v-for="(name,idx) in userName" :key="idx">{{ name.name }}</p>
-  </div>
-</template>
-`
+  get code() {
+    return `
+        <scripts setup>
+        import { watch, ref } from 'vue';
+        import { UserName } from "@/api/user.js"
+        // a不是响应式对象，watch无法监听其状态
+        let a = 0
+        // count是响应式对象，watch可以监听其状态
+        let count = ref(0)
+        let users = ref('')
 
-const info = [{
-  fileName:'Watch.vue',
-  code,
-}]
+        watch(() => a, async (newVal, oldVal) => {
+          console.log(newVal, oldVal)
+        })
+        watch(count, async (newVal, oldVal) => {
+          if(count.value <= 0){
+            userName.value = ''
+            return
+          }else{
+            axios.get('/api/user/'+this.count)
+            .then(res => {
+              this.users = res.data.data
+            })
+            .catch(err => {
+              console.log(err)
+            })
+          }
+        })
+        </scripts>
+
+        <template>
+          <div>
+            <el-button @click="a++">{{ 'a=' + a }}</el-button>
+            <br/>
+            <label for="user">输入人数:</label>
+            <input v-model="count" type="number" name="user"/>
+            <p v-if="count<=0">请输入人数，人数不得小于1</p>
+            <p v-for="(user,idx) in users" :key="idx">{{ user.name }}</p>
+          </div>
+        </template>
+        `
+  }
+}
 </script>

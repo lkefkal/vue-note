@@ -10,47 +10,51 @@
       与JS中 new Proxy() 的使用方法相同，vue会根据组件中对reactive变量的引用自动设置handler
     </el-descriptions-item>
   </el-descriptions>
-  <CodeBlockDisplay :info="info">
-    <button @click="addState" class="tem-btn">
-      {{ state.count }}
-    </button>
-  </CodeBlockDisplay>
+  <PCodeBlockDisplay
+    :code="code"
+    title="Reactive.vue"
+    toc="language-js"
+    >
+    <div>
+      <el-button @click="addState">{{ 'state=' + state.count }}</el-button>
+    </div>
+  </PCodeBlockDisplay>
 </template>
 
-<script setup>
-import CodeBlockDisplay from '@/components/CodeBlock/CodeBlockDisplay.vue';
-import { reactive } from 'vue';
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
+import PCodeBlockDisplay from '@/components/PrimCodeBlock/PCodeBlockDisplay/PCodeBlockDisplay.vue'
 
-let state = reactive({
-  count: 0
+@Options({
+  components: {
+    PCodeBlockDisplay
+  }
 })
+export default class Reactive extends Vue {
+  state = {
+    count: 0
+  }
+  addState = () => {
+    this.state.count += 1
+  }
+  get code() {
+    return `
+        <scripts setup>
+        import { reactive } from 'vue'
+        let state = reactive({
+          count: 0
+        })
+        const addState = () => {
+          state.count += 1
+        }
+        </scripts>
 
-const addState = () => {
-  state.count += 1
+        <template>
+          <button @click="addState">{{ 'state=' + state}}</button>
+        </template>
+        `
+  }
 }
-
-const code = `
-<scripts setup>
-import { reactive } from 'vue'
-let state = reactive({
-  count: 0
-})
-const addState = () => {
-  state.count += 1
-}
-</scripts>
-
-<template>
-  <button @click="addState">
-    {{ state.count }}
-  </button>
-</template>
-`
-
-const info = [{
-  fileName:'Reactive.Vue',
-  code:code,
-}]
 </script>
 
 <style scoped>

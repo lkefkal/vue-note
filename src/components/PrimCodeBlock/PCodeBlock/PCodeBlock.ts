@@ -7,14 +7,29 @@ import CleanCode from '@/utils/handleString/CleanCode';
   props: {
     code: {
       type: String,
-      default: ''
-    }
+      require: true
+    },
+    title: {
+      type: String,
+      default: 'template'
+    },
+    toc: {
+      type: String,
+      default: 'language-html'
+    },
+    inDisplay: {
+      type: Boolean,
+      default: false
+    },
   }
 })
 export default class PCodeBlock extends Vue {
   code!: string;
+  title!: string;
+  toc!: string;
   isCopyed = false;
-  async copyToClipboard(text: string):void {
+  inDisplay!: boolean;
+  async copyToClipboard(text: string):Promise<void> {
     try {
         await navigator.clipboard.writeText(text);
         console.log('Text copied to clipboard');

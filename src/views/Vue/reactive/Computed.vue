@@ -18,91 +18,119 @@
       </div>
     </el-descriptions-item>
   </el-descriptions>
-  <CodeBlockDisplay :info="info">
-    <div>
-      <button @click="b++">{{ b }}</button>
-      <button @click="a++">{{ a }}</button>
-    </div>
-  </CodeBlockDisplay>
-  <CodeBlockDisplay :info="info2">
-    <div class="btn-ctn">
-      <button @click="count++">{{ count }}</button>
-      <button @click="countPlusOne++">{{ countPlusOne }}</button>
-      <button @click="double++">{{ double }}</button>
-    </div>
-  </CodeBlockDisplay>
+  <p>非响应式对象</p>
+  <PCodeBlockDisplay
+    :code="code1"
+    title="Computed.vue"
+    toc="language-html"
+  >
+  <div class="display">
+    <p>{{ 'b=' + b }}</p>
+    <p>{{ 'a=1' }}</p>
+    <el-button @click="b++" name="1st-btn">+1</el-button>
+    <br/>
+    <el-button @click="a++">+1</el-button>
+  </div>
+  </PCodeBlockDisplay>
+  <br/>
+  <br/>
+  <p>响应式对象 & computed设置setter</p>
+  <PCodeBlockDisplay
+    :code="code2"
+    title="Computed.vue"
+    toc="language-html"
+  >
+  <div class="display">
+    <p>{{ 'count=' + count }}</p>
+    <p>{{ 'countPlusOne=' + countPlusOne }}</p>
+    <p>{{ 'doubleCount=' + doubleCount }}</p>
+    <el-button @click="count++">count+1</el-button>
+    <br/>
+    <el-button @click="(countPlusOne as any)++">countPlusOne+1</el-button>
+    <br/>
+    <el-button @click="doubleCount++">doubleCount+1</el-button>
+  </div>
+  </PCodeBlockDisplay>
 </template>
 
-<script setup>
-import CodeBlockDisplay from '@/components/CodeBlock/CodeBlockDisplay.vue';
-import { computed,ref } from 'vue';
-
-let a = 1
-const b = computed(() => a + 1)
-const code = 
-`
-<scripts setup>
-import { computed } from 'vue';
-let a = 1
-const b = computed(() => a + 1)
-</scripts>
-
-<template>
-// b是一个只读的ref，所以click事件无法修改b的值
-<button @click="b++">{{ b }}</button>
-// a不是一个响应式对象，
-// 所以click事件无法触发computed的重新执行
-<button @click="a++">{{ a }}</button>
-</template>
-`
-const info = [{
-  fileName: 'Computed.vue',
-  code
-}]
-
-
-let count = ref(0)
-let countPlusOne = computed(() => count.value + 1)
-let double = computed({
-  get: () => count.value * 2,
-  set: val => {
-    count.value = val / 2
+<script lang="ts" >
+import PCodeBlockDisplay from '@/components/PrimCodeBlock/PCodeBlockDisplay/PCodeBlockDisplay.vue';
+import { Vue, Options } from 'vue-class-component';
+@Options({
+  components: {
+    PCodeBlockDisplay
   }
 })
-const code2 = 
-`
-<script>
-import { computed,ref } from 'vue';
-let count = ref(0)
-let countPlusOne = computed(() => count.value + 1)
-let double = computed({
-  get: () => count.value * 2,
-  set: val => {
-    count.value = val / 2
+export default class Computed extends Vue{
+  get a(){
+    return 1
   }
-})
-</scripts>
+  get b(){
+    return this.a + 1
+  }
+  get code1(){
+    return `
+        <scripts setup>
+        import { computed } from 'vue'
+        let a = 1
+        const b = computed(() => a + 1)
+        </scripts>
 
-<template>
-  // count是一个ref对象，所以click事件可以修改count的值
-  <button @click="count++">{{ count }}</button>
-  // countPlusOne是一个只读的ref对象，所以click事件无法修改countPlusOne的值
-  <button @click="countPlusOne++">{{ countPlusOne }}</button>
-  // double是一个有getter和setter的computed对象，所以click事件可以修改double的值
-  <button @click="double++">{{ double }}</button>
-</template>
-`
+        <template>
+          <div class="display">
+            <p>{{ 'b=' + b }}</p>
+            <p>{{ 'a=1' }}</p>
+            // computed返回的是只读的ref
+            // 所以无法直接修改其值
+            <button @click="b++">+1</button>
+            // a是普通变量
+            // 所以computed无法监听到其变化
+            <button @click="a++">+1</button>
+          </div>
+        </template>
+        `
+  }
+  count = 0
+  get doubleCount (){
+    return this.count * 2
+  }
+  set doubleCount (val){
+    this.count = val / 2
+  }
+  get countPlusOne(){
+    return this.count + 1
+  }
+  get code2(){
+    return `
+        <scripts setup>
+        import { computed, ref } from 'vue'
+        let count = ref(0)
+        const countPlusOne = computed(() => count.value + 1)
+        const doubleCount = computed(() => {
+          get: () => count.value * 2
+          /** 为computed设置setter */
+          set: (val) => {
+            count.value = val / 2
+          }
+        })
+        const addCount = () => {
+          count.value += 1
+        }
+        </scripts>
 
-const info2 = [{
-  fileName: 'Computed2.vue',
-  code: code2
-}]
-</script>
-
-<style scoped>
-.btn-ctn{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+        <template>
+          <div class="display">
+            <p>{{ 'count=' + count }}</p>
+            <p>{{ 'countPlusOne=' + countPlusOne }}</p>
+            <p>{{ 'doubleCount=' + doubleCount }}</p>
+            <button @click="count++">+1</button>
+            <!-- computed返回的是只读ref，所以此按钮无效 -->
+            <button @click="countPlusOne++">+1</button>
+            <!-- 为computed设置了setter,所以可以直接修改其值-->
+            <button @click="doubleCount++">+1</button>
+          </div>
+        </template>
+        `
+  }
 }
-</style>
+</script>

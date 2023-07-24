@@ -1,14 +1,4 @@
-import { Vue, Options } from "vue-class-component";
-import PCodeBlock from '@/components/PrimCodeBlock/PCodeBlock/PCodeBlock.vue';
-
-@Options({
-  components: {
-    PCodeBlock
-  }
-})
-export default class VueSyntax extends Vue {
-  get code1() {
-    return `
+import{_ as u}from"./PCodeBlock-ae39b7ae.js";import{V as _,O as m,_ as i,o as f,c as v,b as d,F as h,p as W,d as g,e as p}from"./index-930a1cec.js";import"./el-button-5f5d31aa.js";import"./use-form-item-a868d19b.js";import"./use-form-common-props-3cf71636.js";var y=Object.defineProperty,x=Object.getOwnPropertyDescriptor,H=(e,l,r,s)=>{for(var t=s>1?void 0:s?x(l,r):l,a=e.length-1,o;a>=0;a--)(o=e[a])&&(t=(s?o(l,r,t):o(t))||t);return s&&t&&y(l,r,t),t};let c=class extends _{get code1(){return`
         /**
           * 显式定义setup
           */
@@ -26,13 +16,13 @@ export default class VueSyntax extends Vue {
             }
           }
         }
-        </script>
+        <\/script>
 
         /**
          * 与上方写法等价
          * <script setup>
          * const msg = 'HelloWorld'
-         * </script>
+         * <\/script>
          */
 
         /**
@@ -52,10 +42,7 @@ export default class VueSyntax extends Vue {
             color: red;
           }
         </style>
-      `
-    }
-  get code2() {
-    return `
+      `}get code2(){return`
         <template>
           <HelloWorld msg="Welcome to Your Vue.js App"/>
         </template>
@@ -68,7 +55,5 @@ export default class VueSyntax extends Vue {
             HelloWorld
           }
         }
-        </script>
-        `
-  }
-}
+        <\/script>
+        `}};c=H([m({components:{PCodeBlock:u}})],c);const n=e=>(W("data-v-67a05489"),e=e(),g(),e),V=n(()=>p("h1",null,"模板语法",-1)),S=n(()=>p("h1",null,"SFC的使用",-1)),O=n(()=>p("div",{style:{padding:"1.5rem"}},[p("h1",null,"书写风格/细节"),p("p",null,"组件命名使用PascalCase，属性命名使用camelCase")],-1));function P(e,l,r,s,t,a){const o=u;return f(),v(h,null,[V,d(o,{code:e.code1,title:"HelloWorld.vue"},null,8,["code"]),S,d(o,{code:e.code2,title:"App.vue"},null,8,["code"]),O],64)}const w=i(c,[["render",P],["__scopeId","data-v-67a05489"]]);export{w as default};
