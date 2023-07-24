@@ -10,7 +10,9 @@
     </div>
     <div
       class="container-right"
-    ><slot></slot></div>
+    >
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -19,13 +21,13 @@
 <style scoped lang="scss">
 .container {
   display: flex;
-  widows: 100%;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
+  align-items: stretch;
   &-left{
     flex-grow: 1;
     padding-right: 0.3em;
-    height: 100%;
     overflow: auto;
   }
   &-right{
@@ -42,7 +44,7 @@
   flex-direction: column;
   align-items: center;
   & button{
-    width: 5em;
+    min-width: 5em;
 }
 }
 </style>

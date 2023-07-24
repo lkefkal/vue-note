@@ -6,39 +6,42 @@
     </el-descriptions-item>
       
   </el-descriptions>
-  <CodeBlockDisplay :info="info">
+  <PCodeBlockDisplay
+    :code="code"
+    title="v-if"
+  >
     <div>
       <el-button @click="shouldRender = !shouldRender">Click</el-button>
       <p v-if="shouldRender">v-if===true</p>
       <p v-else>v-if===false</p>
     </div>
-  </CodeBlockDisplay>
+  </PCodeBlockDisplay>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-import CodeBlockDisplay from '@/components/CodeBlock/CodeBlockDisplay.vue';
+<script lang="ts">
+import { Vue, Options } from 'vue-class-component';
+import PCodeBlockDisplay from '@/components/PrimCodeBlock/PCodeBlockDisPlay/PCodeBlockDisplay.vue'
 
-
-const shouldRender = ref(true)
-const code = 
-`
-<script setup>
-import { ref } from 'vue';
-const shouldRender = ref(true)
-</scripts>
-
-<template>
-  <el-button @click="shouldRender = !shouldRender">Click</el-button>
-  <p v-if="shouldRender">v-if===true</p>
-  <p v-else>v-if===false</p>
-</template>
-`
-
-const info = ref([
-  {
-    code,
-    fileName: 'VModel.vue'
+@Options({
+  components: {
+    PCodeBlockDisplay
   }
-])
+})
+export default class VIf extends Vue{
+  shouldRender = true
+  get code(){
+    return`
+        <script setup>
+        import { ref } from 'vue';
+        const shouldRender = ref(true)
+        </scripts>
+
+        <template>
+          <el-button @click="shouldRender = !shouldRender">Click</el-button>
+          <p v-if="shouldRender">v-if===true</p>
+          <p v-else>v-if===false</p>
+        </template>
+        `
+  }
+}
 </script>

@@ -5,29 +5,38 @@
     </el-descriptions-item>
       
   </el-descriptions>
-  <CodeBlockDisplay :info="info">
+  <PCodeBlockDisplay
+    :code="code"
+    title="v-for"
+  >
     <div>
-      <p v-for="(val,idx) in [1,2,3,4,5]" :key="idx">{{ val }}</p>
+      <p
+        v-for="(val,idx) in [1,2,3,4,5]"
+        :key="idx"
+      >{{ val }}</p>
     </div>
-  </CodeBlockDisplay>
+  </PCodeBlockDisplay>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-const code = 
-`
-<template>
-  <p
-    v-for="(val,idx) in [1,2,3,4,5]"
-    :key="idx"
-  >{{ val }}</p>
-</template>
-`
+<script lang="ts">
+import PCodeBlockDisplay from '@/components/PrimCodeBlock/PCodeBlockDisPlay/PCodeBlockDisplay.vue'
+import { Vue, Options } from 'vue-class-component';
 
-const info = ref([
-  {
-    code,
-    fileName: 'VFor.vue'
+@Options({
+  components: {
+    PCodeBlockDisplay
   }
-])
+})
+export default class VFor extends Vue{
+  get code(){
+    return`
+        <template>
+          <p
+            v-for="(val,idx) in [1,2,3,4,5]"
+            :key="idx"
+          >{{ val }}</p>
+        </template>
+        `
+  }
+}
 </script>

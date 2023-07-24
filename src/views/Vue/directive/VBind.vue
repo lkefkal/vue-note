@@ -16,56 +16,63 @@
       .attr - 强制绑定为 DOM attribute。<br>
     </el-descriptions-item>
   </el-descriptions>
-  <CodeBlock :info="info"></CodeBlock>
+  <PCodeBlock
+    :code="code"
+    title="VBind.vue"
+    toc="language-html"
+  >
+  </PCodeBlock>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-import CodeBlock from '@/components/CodeBlock/CodeBlock.vue';
+<script lang="ts">
+import PCodeBlock from '@/components/PrimCodeBlock/PCodeBlock/PCodeBlock.vue'
+import { Vue, Options } from 'vue-class-component'
 
-const code = 
-`
-<!-- 绑定 attribute -->
-<img v-bind:src="imageSrc" />
-
-<!-- 动态 attribute 名 -->
-<button v-bind:[key]="value"></button>
-
-<!-- 缩写 -->
-<img :src="imageSrc" />
-
-<!-- 缩写形式的动态 attribute 名 -->
-<button :[key]="value"></button>
-
-<!-- 内联字符串拼接 -->
-<img :src="'/path/to/images/' + fileName" />
-
-<!-- class 绑定 -->
-<div :class="{ red: isRed }"></div>
-<div :class="[classA, classB]"></div>
-<div :class="[classA, { classB: isB, classC: isC }]"></div>
-
-<!-- style 绑定 -->
-<div :style="{ fontSize: size + 'px' }"></div>
-<div :style="[styleObjectA, styleObjectB]"></div>
-
-<!-- 绑定对象形式的 attribute -->
-<div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
-
-<!-- prop 绑定。“prop” 必须在子组件中已声明。 -->
-<MyComponent :prop="someThing" />
-
-<!-- 传递子父组件共有的 prop -->
-<MyComponent v-bind="$props" />
-
-<!-- XLink -->
-<svg><a :xlink:special="foo"></a></svg>
-`
-
-const info = ref([
-  {
-    code,
-    fileName: 'VBind.vue'
+@Options({
+  components: {
+    PCodeBlock
   }
-])
+})
+export default class VBind extends Vue{
+  get code(){
+    return`
+        <!-- 绑定 attribute -->
+        <img v-bind:src="imageSrc" />
+
+        <!-- 动态 attribute 名 -->
+        <button v-bind:[key]="value"></button>
+
+        <!-- 缩写 -->
+        <img :src="imageSrc" />
+
+        <!-- 缩写形式的动态 attribute 名 -->
+        <button :[key]="value"></button>
+
+        <!-- 内联字符串拼接 -->
+        <img :src="'/path/to/images/' + fileName" />
+
+        <!-- class 绑定 -->
+        <div :class="{ red: isRed }"></div>
+        <div :class="[classA, classB]"></div>
+        <div :class="[classA, { classB: isB, classC: isC }]"></div>
+
+        <!-- style 绑定 -->
+        <div :style="{ fontSize: size + 'px' }"></div>
+        <div :style="[styleObjectA, styleObjectB]"></div>
+
+        <!-- 绑定对象形式的 attribute -->
+        <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+
+        <!-- prop 绑定。“prop” 必须在子组件中已声明。 -->
+        <MyComponent :prop="someThing" />
+
+        <!-- 传递子父组件共有的 prop -->
+        <MyComponent v-bind="$props" />
+
+        <!-- XLink -->
+        <svg><a :xlink:special="foo"></a></svg>
+      `
+      } 
+}
+
 </script>

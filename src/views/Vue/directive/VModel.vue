@@ -17,41 +17,45 @@
       .trim - 移除输入内容两端空格<br>
     </el-descriptions-item>
   </el-descriptions>
-  <CodeBlockDisplay :info="info">
-    <div>
-      <p>input: {{ input }}</p>
-      <el-input v-model="input" placeholder="请输入内容"></el-input>
-    </div>
-  </CodeBlockDisplay>
+  <PCodeBlockDisplay
+    :code="code"
+    title="VModel.vue"
+    toc="language-html"
+  >
+  <div>
+    <p>input: {{ input }}</p>
+    <el-input v-model="input" placeholder="请输入内容"></el-input>
+  </div>
+  </PCodeBlockDisplay>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-import CodeBlockDisplay from '@/components/CodeBlock/CodeBlockDisplay.vue';
+<script lang="ts">
+import PCodeBlockDisplay from '@/components/PrimCodeBlock/PCodeBlockDisplay/PCodeBlockDisplay.vue'
+import { Vue, Options} from 'vue-class-component';
 
-
-const input = ref('')
-const code = 
-`
-<script setup>
-import { ref } from 'vue';
-const input = ref('')
-</scripts>
-
-<template>
-  <p>input: {{ input }}</p>
-  <el-input v-model="input" placeholder="请输入内容"></el-input>
-  <!--
-    --等价于
-    -- <el-input :value="input" @input="input = $event" placeholder="请输入内容"></el-input>
-    -->
-</template>
-`
-
-const info = ref([
-  {
-    code,
-    fileName: 'VModel.vue'
+@Options({
+  components:{
+    PCodeBlockDisplay
   }
-])
+})
+export default class VModel extends Vue {
+  input = ''
+  get code(){
+    return `
+        <script setup>
+        import { ref } from 'vue';
+        const input = ref('')
+        </scripts>
+
+        <template>
+          <p>input: {{ input }}</p>
+          <el-input v-model="input" placeholder="请输入内容"></el-input>
+          <!--
+            --等价于
+            -- <el-input :value="input" @input="input = $event" placeholder="请输入内容"></el-input>
+            -->
+        </template>
+        `
+  }
+}
 </script>

@@ -50,7 +50,7 @@
 }
 .code-block {
   border-radius: 0.5em;
-  padding: 0;
+  padding: 0 1em 0 0;
   display: flex;
   margin: 0;
   & .inner-code {
@@ -60,5 +60,20 @@
     font-size: 0.9em;
     color: #d6dce8;
   }
+  &::-webkit-scrollbar{
+      height: 0.5em;
+      &-thumb{
+        background-color: rgb(203, 51, 188);
+        background-clip: padding-box; 
+        border: 2px solid transparent; 
+        &:hover{
+          background-color: grey;
+        }
+      }
+      &-track{
+        background-color: rgb(63, 215, 236);
+        border-radius: 4px;
+      }
+    }
 }
 </style>

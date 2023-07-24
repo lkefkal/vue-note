@@ -8,7 +8,7 @@
   :router="true"
 >
   <el-card shadow="always">
-    <router-link to="/vue">
+    <router-link to="/home">
 
     <a class="home-link">
       <img src="@/assets/logo.svg" class="title-image"/>
@@ -38,6 +38,7 @@
     </el-sub-menu>
     <el-sub-menu index="/vue/component">
       <template #title>组件</template>
+      <el-menu-item index="/vue/component">组件基础</el-menu-item>
       <ElMenuGroup
         :menuName="['参数传递','插槽','事件注册','生命周期']"
         :menuList="['props','slot', 'event', 'lifecycle']"
@@ -85,7 +86,7 @@
 
 <script lang="ts" src="./NavBar.ts" />
 
-<style scoped>
+<style scoped lang="scss">
 .home-link {
   color: black;
   &:hover{
@@ -102,11 +103,22 @@
   /* width: 17em; */
   height: 100%;
   overflow-y: scroll;
+  &::-webkit-scrollbar{
+    width: 0.5em;
+    &-thumb{
+      background-color: darkgrey;
+      border-radius: 4px;
+      background-clip: padding-box; 
+      border: 2px solid transparent; 
+      &:hover{
+        background-color: grey;
+      }
+    }
+    &-track{
+      background-color: lightgrey;
+      border-radius: 4px;
+    }
+  }
 }
 
-/* @media (max-width: 768px) {
-  .el-menu-vertical-demo{
-    width: auto;
-  }
-} */
 </style>

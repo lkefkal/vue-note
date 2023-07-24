@@ -55,6 +55,22 @@ export default class Layout extends Vue {
     width: 100%;
     overflow-y: scroll;
     position: relative;
+    &::-webkit-scrollbar{
+      width: 0.5em;
+      &-thumb{
+        background-color: darkgrey;
+        border-radius: 4px;
+        background-clip: padding-box; 
+        border: 2px solid transparent; 
+        &:hover{
+          background-color: grey;
+        }
+      }
+      &-track{
+        background-color: lightgrey;
+        border-radius: 4px;
+      }
+    }
   }
   &-header {
     position: relative;

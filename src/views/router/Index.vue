@@ -7,36 +7,18 @@
       <a href="https://router.vuejs.org/zh/" target="_blank">vue-router</a>
     </div>
   </div>
-  <div style="padding: 1.5rem;">
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
-<script setup>
-import { useRouter,useRoute } from 'vue-router';
-import { computed } from 'vue';
+<script lang="ts">
+import { Vue } from 'vue-class-component';
 
-const router = useRouter()
-const route = useRoute()
-
-const isInHome = computed(() => {
-  return route.path === '/router'
-})
+export default class Index extends Vue{
+  get isInHome(){
+    return this.$route.path === '/router'
+  }
+}
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-}
-
-.container>div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 </style>

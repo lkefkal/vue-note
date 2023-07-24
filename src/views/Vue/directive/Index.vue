@@ -17,29 +17,26 @@
   </div>
 </template>
 
-<script setup>
-import { computed } from 'vue';
-import { useRouter,useRoute } from 'vue-router';
+<script lang="ts">
+import { Vue, Options } from 'vue-class-component';
 
-const router = useRouter()
-const route = useRoute()
-
-const whiereIs = computed(() => {
-  // console.log(route.path.split('/').pop())
-  return route.path.split('/').pop()
+@Options({
+  components: {
+  }
 })
-
-const handleClick = (path) => {
-  router.push('/vue/directive/' + path)
+export default class Index extends Vue {
+  handleClick(path: string) {
+    this.$router.push('/vue/directive/' + path)
+  }
+  get whiereIs() {
+    return this.$route.path.split('/').pop()
+  }
 }
+
 </script>
 
 <style scoped>
 .container {
-  padding:0.5em 1.5em;
-}
-
-.container+div {
-  padding:0.5em 1.5em;
+  padding-top: 1em;
 }
 </style>
