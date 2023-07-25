@@ -96,7 +96,7 @@ export default class Layout extends Vue {
 }
 
 .main {
-  padding: 0 2rem;
+  padding: 1em 2rem;
   height: 100%;
 }
 .git-icon{

@@ -25,12 +25,14 @@
     "vue": "^3.3.4",
     "vue-class-component": "next",
     "vue-property-decorator": "^9.1.2",
-    "vue-router": "^4.2.4"
+    "vue-router": "^4.2.4",
+    "vuex": "next"
   },
   "devDependencies": {
     "@types/prismjs": "^1.26.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/composition-api": "^1.7.1",
+    "@vue/runtime-dom": "^3.3.4",
     "concurrently": "^8.2.0",
     "mockjs": "^1.1.0",
     "prismjs": "^1.29.0",

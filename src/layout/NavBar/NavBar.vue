@@ -66,12 +66,22 @@
       <span>Element-Plus</span>
     </template>
   </el-sub-menu>
-  <el-sub-menu index="4" disabled>
+  <el-sub-menu index="/tsNote">
     <!-- <el-icon><setting /></el-icon> -->
     <template #title>
       <img src="@/assets/Typescript.png" class="title-image"/>
       <span>Move to TypeScrtpt</span>
     </template>
+    <el-sub-menu index="/tsNote/base">
+      <template #title>
+          基础
+      </template>
+      <ElMenuGroup
+        :menuName="['基础类型','接口','类','函数','泛型','枚举','类型推论','类型兼容性','高级类型']"
+        :menuList="['baseType','interface', 'class', 'function', 'generic', 'enum', 'typeInference', 'typeCompatibility', 'advancedType']"
+        :parentPath="'/tsNote/base'"
+        ></ElMenuGroup>
+    </el-sub-menu>
   </el-sub-menu>
   <el-sub-menu index="/modules">
     <template #title>

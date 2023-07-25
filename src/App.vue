@@ -1,14 +1,6 @@
-<script>
-import { defineComponent } from 'vue';
-// import HomeLayout from "@/views/Home/HomeLayout.vue"
-
-export default defineComponent({
-  name: 'App',
-  setup() {
-    return {
-    };
-  },
-});
+<script lang="ts">
+import { Vue } from 'vue-class-component';
+export default class App extends Vue{}
 </script>
 
 <template>

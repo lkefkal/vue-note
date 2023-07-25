@@ -1,28 +1,16 @@
 <template>
   <p>quill</p>
-  <PCodeBlock :code="code"></PCodeBlock>
+  <p>{{ count }}</p>
+  <el-button @click="$store.commit('increment')">+ 1</el-button>
+  <el-button @click="$store.commit('decrement')">- 1</el-button>
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-class-component';
-import CodeBlock from '@/components/PrimCodeBlock/PCodeBlock/PCodeBlock.vue';
-@Options({
-  components: {
-    CodeBlock
-  }
-})
+import { Vue } from 'vue-class-component';
+
 export default class QuillView extends Vue {
-  get code(){
-    return `
-        /** 
-         * 
-         */
-        <template>
-          <div>
-            123
-          </div>
-        </template>
-        `
+  get count(){
+    return this.$store.state.count
   }
 }
-</script>@/utils/handleString/CleanCode
+</script>

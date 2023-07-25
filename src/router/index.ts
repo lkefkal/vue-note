@@ -5,6 +5,7 @@ import Home from "@/views/home/Index.vue"
 import vueRoute from './vue'
 import routerRoute from './router'
 import modulesRoute from './modules'
+import tsNoteRoute from './tsNote'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -22,6 +23,7 @@ export default createRouter({
         vueRoute,
         routerRoute,
         modulesRoute,
+        tsNoteRoute,
       ]
     },
   ]
