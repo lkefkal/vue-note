@@ -15,6 +15,9 @@
           <el-divider class="divider"/>
         </div>
         <div class="main" >
+          <loading v-model:active="isLoading"
+            :is-full-page="true"
+          />
           <router-view></router-view>
         </div>
       </div>
@@ -26,14 +29,18 @@ import { Vue, Options } from 'vue-class-component';
 import { markRaw } from 'vue';
 import NavBar from "./NavBar/NavBar.vue"
 import { ArrowRight } from '@element-plus/icons-vue'
+import Loading from 'vue-loading-overlay';
+
 const NonReactiveArrowRight = markRaw(ArrowRight);
 @Options({
   components: {
-    NavBar
-  }
+    NavBar,
+    Loading
+  },
 })
 export default class Layout extends Vue {
   ArrowRight = NonReactiveArrowRight
+  $store: any;
   findPath(item:string){
     var path = this.$route.path
     var index = path.indexOf(item)
@@ -41,6 +48,9 @@ export default class Layout extends Vue {
   }
   get pathName(){
     return (this.$route.path).split('/').slice(1,)
+  }
+  get isLoading(){
+    return this.$store.state.isRouting
   }
 }
 </script>

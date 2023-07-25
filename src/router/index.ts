@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecord } from 'vue-router'
+import store from '@/store'
 
 import Layout from "@/layout/Layout.vue"
 import Home from "@/views/home/Index.vue"
@@ -7,7 +8,7 @@ import routerRoute from './router'
 import modulesRoute from './modules'
 import tsNoteRoute from './tsNote'
 
-export default createRouter({
+const router =  createRouter({
   history: createWebHashHistory(),
   routes: [
     {
@@ -28,3 +29,20 @@ export default createRouter({
     },
   ]
 })
+
+router.beforeEach(async (to, from, next) => {
+  if(store.state.pageCache[to.path]) {
+    next()
+    return
+  } else {
+    await store.commit('doRouting')
+    await store.commit('addCache', {path: to.path})
+    next()
+  }
+})
+
+router.afterEach(() => {
+  store.commit('doneRouting')
+})
+
+export default router

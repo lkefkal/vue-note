@@ -59,7 +59,13 @@
         <span>路由匹配</span>
     </el-menu-item>
   </el-sub-menu>
-  <el-sub-menu index="3" disabled>
+  <el-sub-menu index="/vuex" disabled>
+    <template #title>
+      <img src="@/assets/logo.svg" class="title-image"/>
+      <span>VueX</span>
+    </template>
+  </el-sub-menu>
+  <el-sub-menu index="/ElementPus" disabled>
     <!-- <el-icon><document /></el-icon> -->
     <template #title>
       <el-icon style="padding: 0;width: auto;"><ElementPlus /></el-icon>  

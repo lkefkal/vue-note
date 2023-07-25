@@ -1,4 +1,6 @@
-<script setup>
+<script lang="ts">
+import { Vue } from 'vue-class-component';
+export default class Index extends Vue{}
 </script>
 
 <template>
