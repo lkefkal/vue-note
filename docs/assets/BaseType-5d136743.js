@@ -1,14 +1,4 @@
-import { Vue, Options } from 'vue-class-component';
-import PCodeBlock from '@/components/PrimCodeBlock/PCodeBlock/PCodeBlock';
-
-@Options({
-  components: {
-    PCodeBlock
-  },
-})
-export default class BaseType extends Vue {
-  get defineVarType(){
-    return`
+import{_ as p}from"./PCodeBlock-46730204.js";import{V as c,O as m,_ as f,o as g,c as y,b as l,F as b,p as _,d as v,e as u}from"./index-cd3cb997.js";import{P as h}from"./PCodeBlock-7b046c20.js";import"./el-button-74933914.js";import"./use-form-common-props-55839fd0.js";import"./CleanCode-931345d6.js";var T=Object.defineProperty,N=Object.getOwnPropertyDescriptor,O=(e,t,o,a)=>{for(var n=a>1?void 0:a?N(t,o):t,s=e.length-1,r;s>=0;s--)(r=e[s])&&(n=(a?r(t,o,n):r(n))||n);return a&&n&&T(t,o,n),n};let i=class extends c{get defineVarType(){return`
         // 1. 类型断言
         let someValue: any = "this is a string";
         let strLength: number = (someValue as string).length;
@@ -54,10 +44,7 @@ export default class BaseType extends Vue {
             }
             return padding + input;
         }
-    `
-  }
-  get generalType(){
-    return `
+    `}get generalType(){return`
         // 1. 数字
         let decLiteral: number = 6;
         let hexLiteral: number = 0xf00d;
@@ -136,5 +123,4 @@ export default class BaseType extends Vue {
         let button = new UIElement();
         button.animate(0, 0, "ease-in");
         button.animate(0, 0, "uneasy"); // error: "uneasy" is not allowed here
-    `}
-}
+    `}};i=O([m({components:{PCodeBlock:h}})],i);const d=e=>(_("data-v-ba8acfdd"),e=e(),v(),e),w=d(()=>u("p",null,"定义变量类型",-1)),E=d(()=>u("p",null,"常见类型",-1));function x(e,t,o,a,n,s){const r=p;return g(),y(b,null,[w,l(r,{code:e.defineVarType,toc:"language-js",inDisplay:""},null,8,["code"]),E,l(r,{code:e.generalType,toc:"language-js",inDisplay:""},null,8,["code"])],64)}const C=f(i,[["render",x],["__scopeId","data-v-ba8acfdd"]]);export{C as default};

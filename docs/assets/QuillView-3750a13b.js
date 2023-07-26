@@ -1,0 +1,1 @@
+import{V as s,_ as t,o,c as n,F as a,e}from"./index-cd3cb997.js";let c=class extends s{};const r=e("p",null,"quill",-1),i=e("div",null,null,-1);function u(l,_,d,p,V,f){return o(),n(a,null,[r,i],64)}const x=t(c,[["render",u]]);export{x as default};

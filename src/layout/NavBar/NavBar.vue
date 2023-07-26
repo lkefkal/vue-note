@@ -84,10 +84,12 @@
       </template>
       <ElMenuGroup
         :menuName="['基础类型','接口','类','函数','泛型','枚举','类型推论','类型兼容性','高级类型']"
-        :menuList="['baseType','interface', 'class', 'function', 'generic', 'enum', 'typeInference', 'typeCompatibility', 'advancedType']"
+        :menuList="['baseType','interface', 'classes', 'function', 'generic', 'enum', 'typeInference', 'typeCompatibility', 'advancedType']"
         :parentPath="'/tsNote/base'"
         ></ElMenuGroup>
     </el-sub-menu>
+    <el-menu-item index="/tsNote/cheatsheet">Cheat Sheet</el-menu-item>
+    <el-menu-item index="/tsNote/challenge">类型体操</el-menu-item>
   </el-sub-menu>
   <el-sub-menu index="/modules">
     <template #title>

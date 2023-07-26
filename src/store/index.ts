@@ -26,6 +26,8 @@ const mutations = {
 }
 
 const actions = {}
+
+
 const store = createStore({
   state,
   mutations,
