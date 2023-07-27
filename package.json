@@ -25,12 +25,14 @@
     "tslib": "^2.6.0",
     "vue": "^3.3.4",
     "vue-class-component": "next",
+    "vue-i18n": "^9.2.2",
     "vue-loading-overlay": "^6.0.3",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.2.4",
     "vuex": "next"
   },
   "devDependencies": {
+    "@types/node": "^20.4.5",
     "@types/prismjs": "^1.26.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/composition-api": "^1.7.1",

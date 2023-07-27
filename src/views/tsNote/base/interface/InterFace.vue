@@ -12,13 +12,13 @@
   <div class="ctn">
     <PCodeBlock
     :code="interfaceAndTypeLeft"
-    toc="language-js"
+    toc="language-typescript"
     title="interface"
     inDisplay
     ></PCodeBlock>
     <PCodeBlock
       :code="interfaceAndTypeRight"
-      toc="language-js"
+      toc="language-typescript"
       title="type"
       inDisplay
     ></PCodeBlock>

@@ -3,7 +3,7 @@
   <PCodeBlock
     :code="functionDefine"
     title="function"
-    toc="language-js"
+    toc="language-typescript"
   />
 </template>
 

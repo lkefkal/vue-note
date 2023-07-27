@@ -3,13 +3,13 @@
   <PCodeBlock
     :code="classesDefine"
     title="classes"
-    toc="language-js"
+    toc="language-typescript"
   ></PCodeBlock>
   <p>类的继承</p>
   <PCodeBlock
     :code="classesExtend"
     title="classes"
-    toc="language-js"
+    toc="language-typescript"
   ></PCodeBlock>
 </template>
 

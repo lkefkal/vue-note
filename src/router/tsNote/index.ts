@@ -1,4 +1,5 @@
 import { RouteRecordRaw } from 'vue-router'
+import challengeRoute from './challenges'
 
 const tsNoteRoute: RouteRecordRaw = {
   path: '/tsNote',
@@ -34,10 +35,7 @@ const tsNoteRoute: RouteRecordRaw = {
       path: 'cheatsheet',
       component: () => import('@/views/tsNote/cheatSheet/Cheatsheet.vue')
     },
-    {
-      path: 'challenge',
-      component: () => import('@/views/tsNote/typeChallenges/TypeChallenge.vue')
-    }
+    challengeRoute,
   ]
 }
 

@@ -5,7 +5,7 @@ declare module '@vue/runtime-core' {
   interface State {
     count: number,
     isRouting: boolean,
-
+    pageCache: Map<string, boolean>,
   }
 
   // provide typings for `this.$store`

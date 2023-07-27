@@ -2,13 +2,13 @@
   <p>定义变量类型</p>
   <PCodeBlock
     :code="defineVarType"
-    toc="language-js"
+    toc="language-typescript"
     inDisplay
   ></PCodeBlock>
   <p>常见类型</p>
   <PCodeBlock
     :code="generalType"
-    toc="language-js"
+    toc="language-typescript"
     inDisplay
   ></PCodeBlock>
 </template>
