@@ -31,12 +31,12 @@ const router =  createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  if(store.state.pageCache[to.path]) {
+  if(store.state.pageCache.get(to.path)) {
     next()
     return
   } else {
-    await store.commit('doRouting')
-    await store.commit('addCache', {path: to.path})
+    store.commit('doRouting')
+    store.commit('addCache', {path: to.path})
     next()
   }
 })

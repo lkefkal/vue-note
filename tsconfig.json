@@ -120,7 +120,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue"
-  ],
+, "src/vuex.d.ts"  ],
   "exclude": [
     "node_modules",
     "dist",

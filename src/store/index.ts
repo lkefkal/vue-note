@@ -1,9 +1,11 @@
 import { createStore } from 'vuex'
 
+const pageCache = new Map()
+
 const state = {
   count: 0,
   isRouting: false,
-  pageCache:{}
+  pageCache,
 }
 
 const mutations = {
@@ -21,7 +23,7 @@ const mutations = {
     state.isRouting = false
   },
   addCache(state:any, payload:any) {
-    state.pageCache[payload.path] = true
+    state.pageCache.set(payload.path, true)
   }
 }
 
