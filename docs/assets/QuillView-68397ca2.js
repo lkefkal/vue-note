@@ -1,0 +1,1 @@
+import{V as o,_ as s,o as l,c as r,e as t,t as i,F as a}from"./index-bdc1aac7.js";let u=class extends o{get count(){return this.$store.state.count}};const c=t("p",null,"quill",-1);function p(e,n,d,$,m,V){return l(),r(a,null,[c,t("div",null,[t("button",{onClick:n[0]||(n[0]=f=>e.$store.commit("increment"))},i(e.count),1)])],64)}const k=s(u,[["render",p]]);export{k as default};

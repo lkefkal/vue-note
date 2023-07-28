@@ -38,6 +38,7 @@ declare module 'vue' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
+    ElText: typeof import('element-plus/es')['ElText']
     PCodeBlock: typeof import('./src/components/PrimCodeBlock/PCodeBlock/PCodeBlock.vue')['default']
     PCodeBlockDisplay: typeof import('./src/components/PrimCodeBlock/PCodeBlockDisPlay/PCodeBlockDisplay.vue')['default']
     Quiz: typeof import('./src/components/quiz/quiz.vue')['default']

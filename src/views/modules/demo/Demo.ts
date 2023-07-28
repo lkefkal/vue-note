@@ -44,7 +44,7 @@ export default class Demo extends Vue{
   queryDateDuration = false
   isFilter = false
   addWindowShouldRender = false
-  selectedRowIndex = -1
+  dateSortInOrder = true
   pagination = {
     currentPage: 1,
     pageSize: 10,
@@ -62,11 +62,22 @@ export default class Demo extends Vue{
     name: '',
     address: ''
   }
+  deleteForm: PersonInfo | null = null
   handleSizeChange(val:number) {
     this.pagination.pageSize = val
   }
   handleCurrentChange(val:number) {
     this.pagination.currentPage = val
+  }
+  sortTableData(){
+    this.dateSortInOrder = !this.dateSortInOrder
+    this.tableData = this.tableData.sort(
+      (a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return this.dateSortInOrder ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime()
+      }
+    )
   }
   filterByQuery() {
     // console.log(this.form)
@@ -113,6 +124,22 @@ export default class Demo extends Vue{
       ...this.tableData,
     ]
     this.handleCloseAddWindow()
+  }
+  handleRowClick(row: PersonInfo){
+    console.log(row)
+    this.deleteForm = {
+      date: row.date,
+      name: row.name,
+      address: row.address
+    }
+  }
+  handleDelete(){
+    if(!this.deleteForm) return
+    const { date, name, address } = this.deleteForm
+    this.tableData = this.tableData.filter((item) => {
+      if(item.date === date && item.name === name && item.address === address) return false
+      return true
+    })
   }
   private handleDateFormate(date:string) {
     let dateArr = new Date(date)

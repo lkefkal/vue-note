@@ -58,7 +58,11 @@
           <el-button type="primary" @click="openAdd">新增</el-button>
         </el-col>
         <el-col :span="2">
-          <el-button type="primary">删除</el-button>
+          <el-button
+            type="primary"
+            :disabled="deleteForm === null"
+            @click="handleDelete"
+            >删除</el-button>
         </el-col>
       </el-row>
       <el-table
@@ -73,7 +77,16 @@
           :key="idx"
           :prop="item"
           :label="item"
-          ></el-table-column> 
+          >
+        <template #header v-if="item==='date'">
+          <div class="ctn-header">
+            <el-text>date</el-text>
+            <el-button  style="border:0;" @click="sortTableData">
+              <el-icon><Sort /></el-icon>
+            </el-button>
+          </div>
+        </template>
+        </el-table-column> 
       </el-table>
       <el-pagination
         v-if="pagination"
@@ -115,6 +128,14 @@
 <script lang="ts" src="./Demo.ts"></script>
 
 <style scoped lang="scss">
+.ctn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & el-button{
+    width:auto;
+  }
+}
 .container {
   display:flex;
   flex-direction: column;
@@ -122,9 +143,6 @@
 }
 .el-col {
   margin: 10px 0;
-}
-.el-button {
-  width: 100%;
 }
 .el-dialog {
   width: 50%;
