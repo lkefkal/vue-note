@@ -16,6 +16,7 @@
       title="template"
       toc="language-typescript"
       ></PCodeBlock>
+    <textarea style="width: 100%;height: 300px;"></textarea>
   </div>
 </template>
 

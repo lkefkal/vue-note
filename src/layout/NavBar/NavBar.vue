@@ -97,7 +97,14 @@
     </template>
     <el-menu-item
       index="/modules/quill"
-      >quill</el-menu-item>
+    > 
+      quill
+    </el-menu-item>
+    <el-menu-item
+      index="/modules/demo"
+    >
+      Demo
+    </el-menu-item>
   </el-sub-menu>
 </el-menu>
 </template>

@@ -6,7 +6,8 @@ const challengeRoute: RouteRecordRaw =  {
   children: [
     {
       path: 'quiz13-HelloWorld',
-      component: () => import('@/views/tsNote/typeChallenges/quiz13-HelloWorld/quiz13-HelloWorld.vue')
+      component: () => import('@/views/tsNote/typeChallenges/quiz13-HelloWorld/quiz13-HelloWorld.vue'),
+      meta: { title: 'Hello World' }
     },
     {
       path: 'quiz4-Pick',

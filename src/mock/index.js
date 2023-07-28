@@ -13,6 +13,20 @@ Mock.mock(/\/api\/user\/\d+/, 'get', function(options) {
   }
 })
 
+Mock.mock(/\/api\/demo/, 'get', function(options) {
+  // const singleDate = 
+  return {
+    status: 200,
+    data: Array.from({ length: Mock.Random.natural(1500,10000)  }, () => {
+      return {
+          date: Mock.Random.date('yyyy-MM-dd'),
+          name: Mock.Random.cname(),
+          address: Mock.Random.province() + Mock.Random.city()+ Mock.Random.county(), 
+        }
+    })
+  }
+})
+
 
 Mock.setup({
   timeout:'200-400'

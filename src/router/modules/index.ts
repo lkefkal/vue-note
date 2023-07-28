@@ -11,6 +11,11 @@ const modulesRoute:RouteRecordRaw =
         name: 'quill',
         component: () => import('@/views/modules/QuillView.vue')
       },
+      {
+        path: 'demo',
+        name: 'demo',
+        component: () => import('@/views/modules/demo/Demo.vue')
+      }
     ]
   }
 

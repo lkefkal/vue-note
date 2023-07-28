@@ -1,1 +1,0 @@
-import{V as r,_ as n,r as a,o as t,c as o,a as c,b as p,F as d}from"./index-9eba7189.js";class u extends r{get isInHome(){return this.$route.path==="/tsNote"}}const _={key:0};function m(e,i,l,x,f,I){const s=a("router-view");return t(),o(d,null,[e.isInHome?(t(),o("p",_,"TS Index")):c("",!0),p(s)],64)}const h=n(u,[["render",m]]);export{h as default};
