@@ -33,6 +33,9 @@ const mutations = {
   deleteQuizCache(state:any, payload:any) {
     state.quizPageCache.delete(payload.title)
   },
+  clearCache(state:any) {
+    state.quizPageCache.clear()
+  }
 }
 
 const actions = {}

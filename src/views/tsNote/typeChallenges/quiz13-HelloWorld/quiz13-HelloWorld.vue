@@ -16,7 +16,7 @@
       title="template"
       toc="language-typescript"
       ></PCodeBlock>
-    <textarea style="width: 100%;height: 300px;"></textarea>
+    <textarea></textarea>
   </div>
 </template>
 
@@ -34,6 +34,10 @@
     top: 0;
     right: 0;
     z-index: 1;
+  }
+  & textarea {
+    height: 300px;
+    padding: 1.5em;
   }
 }
 </style>

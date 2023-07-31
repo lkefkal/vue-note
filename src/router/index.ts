@@ -31,6 +31,12 @@ const router =  createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+  if(from.path.match(/\/tsNote\/challenge/) && !to.path.match(/\/tsNote\/challenge/)){
+    store.commit('clearCache')
+  }
+  if(to.meta.isQuiz) {
+    store.commit('addQuizCache', { title: to.meta.title, path: to.path })
+  }
   if(store.state.pageCache.get(to.path)) {
     next()
     return

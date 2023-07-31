@@ -20,7 +20,11 @@
             </el-button>
             <!-- <button @click="handleTest">test</button> -->
             <span v-for="(val,idx) in quizPages">
-              <el-button :class="'path-btn ' + ($route.path.match((val as [string,string])[1]) && 'active')" @click="handleClickPathBtn((val as Array<string>)[1])">
+              <el-button
+                :class="'path-btn ' + ($route.path.match((val as [string,string])[1]) && 'active')"
+                @click="handleClickPathBtn((val as Array<string>)[1])"
+                :disabled="$route.path.match((val as [string,string])[1]) !== null"
+                >
                 {{ (val as [string,string])[0] }}
                 <button class="path-btn-cancel" @click="handleCancel((val as [string,string]), $event)">
                   <el-icon class="path-btn-cancel-icon"><CloseBold /></el-icon>
@@ -78,7 +82,7 @@ export default class Layout extends Vue {
     return Array.from(this.$store.state.quizPageCache)
   }
   handleClickPathBtn(path: string){
-    this.$router.push('/tsNote/challenge/'+path)
+    this.$router.push(path)
   }
   handleCancel(val:[string,string], event:Event){
     event.stopPropagation()
