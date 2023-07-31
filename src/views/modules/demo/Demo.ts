@@ -140,6 +140,7 @@ export default class Demo extends Vue{
       if(item.date === date && item.name === name && item.address === address) return false
       return true
     })
+    this.deleteForm = null
   }
   private handleDateFormate(date:string) {
     let dateArr = new Date(date)
