@@ -79,6 +79,7 @@
         highlight-current-row
         style="width: 100%"
         @row-click="handleRowClick"
+        ref="myTable"
         >
         <el-table-column
           v-for="(item,idx) in ['date','name','address']" 

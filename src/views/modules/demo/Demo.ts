@@ -11,6 +11,9 @@ type PersonInfo = {
 type TableData = PersonInfo[] | []
 
 @Options({
+  ref:{
+    myTable: ''
+  },
   mounted() {
     // console.log('demo mounted')
     axios.get('/api/demo')
@@ -21,6 +24,12 @@ type TableData = PersonInfo[] | []
       .catch((err) => {
         console.log(err)
       })
+    console.log(this.$refs.myTable)
+    const tableDom = this.$refs.myTable as HTMLElement
+    document.addEventListener('mousedown', this.handleClickOutside)
+  },
+  beforeDestroy() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
   },
   watch: {
     filterData: {
@@ -105,6 +114,12 @@ export default class Demo extends Vue{
   }
   openAdd(){
     this.addWindowShouldRender = true
+  }
+  handleClickOutside(event: Event) {
+    if (!(this.$refs.myTable as any).$el.contains(event.target)) { // 如果点击的不是表格内部
+      (this.$refs.myTable as any).setCurrentRow(); // 取消高亮
+      this.currentRow = null
+    }
   }
   handleCloseAddWindow() {
     this.addForm = {
