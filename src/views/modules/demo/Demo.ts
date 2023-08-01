@@ -1,7 +1,6 @@
 import { Vue, Options } from 'vue-class-component';
 import axios from 'axios';
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { h } from 'vue'
 
 type PersonInfo = {
   date: string;
@@ -44,6 +43,7 @@ export default class Demo extends Vue{
   queryDateDuration = false
   isFilter = false
   addWindowShouldRender = false
+  editWindowShouldRender = false
   dateSortInOrder = true
   pagination = {
     currentPage: 1,
@@ -62,7 +62,12 @@ export default class Demo extends Vue{
     name: '',
     address: ''
   }
-  deleteForm: PersonInfo | null = null
+  editForm: PersonInfo ={
+    date: '',
+    name: '',
+    address: ''
+  }
+  currentRow: any = null
   handleSizeChange(val:number) {
     this.pagination.pageSize = val
   }
@@ -126,22 +131,44 @@ export default class Demo extends Vue{
     this.handleCloseAddWindow()
   }
   handleRowClick(row: PersonInfo){
-    console.log(row)
-    this.deleteForm = {
-      date: row.date,
-      name: row.name,
-      address: row.address
-    }
+    this.currentRow = row
   }
   handleDelete(){
-    if(!this.deleteForm) return
-    const { date, name, address } = this.deleteForm
+    if(!this.currentRow) return
+    const { date, name, address } = this.currentRow
     this.tableData = this.tableData.filter((item) => {
       if(item.date === date && item.name === name && item.address === address) return false
       return true
     })
-    this.deleteForm = null
+    this.currentRow = null
   }
+  handleEdit(){
+    if(!this.currentRow) return
+    const { date, name, address } = this.currentRow
+    this.editForm = {
+      date,
+      name,
+      address
+    }
+    this.editWindowShouldRender = true
+  }
+  handleCloseEditWindow(){
+    this.editWindowShouldRender = false
+  }
+  handleEditPerson(){
+    if(!this.currentRow || !this.editForm) return
+    const { date, name, address } = this.editForm
+    this.currentRow.date = this.handleDateFormate(date)
+    this.currentRow.name = name
+    this.currentRow.address = address
+    this.editForm = {
+      date: '',
+      name: '',
+      address: ''
+    }
+    this.editWindowShouldRender = false
+  }
+
   private handleDateFormate(date:string) {
     let dateArr = new Date(date)
     let year = dateArr.getFullYear()

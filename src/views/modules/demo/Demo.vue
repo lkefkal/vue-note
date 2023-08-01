@@ -60,15 +60,23 @@
         <el-col :span="2">
           <el-button
             type="primary"
-            :disabled="deleteForm === null"
+            :disabled="currentRow === null"
             @click="handleDelete"
             >删除</el-button>
+        </el-col>
+        <el-col :span="2">
+          <el-button
+            type="primary"
+            :disabled="currentRow === null"
+            @click="handleEdit"
+            >修改</el-button>
         </el-col>
       </el-row>
       <el-table
         v-if="tableData" 
         :data="currentPageData" 
-        border 
+        border
+        highlight-current-row
         style="width: 100%"
         @row-click="handleRowClick"
         >
@@ -119,6 +127,27 @@
         <el-form-item>
           <el-button type="danger" @click="handleCloseAddWindow">取消</el-button>
           <el-button type="primary" @click="handleAddPerson">确定</el-button>
+        </el-form-item>
+      </el-form>
+    </el-dialog>
+    <el-dialog v-model="editWindowShouldRender" class="dialog" title="修改人员信息">
+      <el-form :model="editForm" >
+        <el-form-item label="姓名" >
+          <el-input v-model="editForm.name" placeholder="请输入姓名"></el-input>
+        </el-form-item>
+        <el-form-item label="地址" >
+          <el-input v-model="editForm.address" placeholder="请输入姓名"></el-input>
+        </el-form-item>
+        <el-form-item label="日期" >
+          <el-date-picker
+            v-model="editForm.date"
+            type="date"
+            placeholder="选择日期"
+            ></el-date-picker>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="danger" @click="handleCloseEditWindow">取消</el-button>
+          <el-button type="primary" @click="handleEditPerson">确定</el-button>
         </el-form-item>
       </el-form>
     </el-dialog>

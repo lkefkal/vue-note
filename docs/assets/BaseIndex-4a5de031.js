@@ -1,0 +1,1 @@
+import{V as a,_ as n,r,o as t,c as s,a as c,b as p,F as d}from"./index-798c73d0.js";let m=class extends a{get isInHome(){return this.$route.path.match(/^\/tsNote\/base$/)}};const u={key:0};function _(e,i,l,$,x,B){const o=r("router-view");return t(),s(d,null,[e.isInHome?(t(),s("p",u,"Base View")):c("",!0),p(o)],64)}const I=n(m,[["render",_]]);export{I as default};
